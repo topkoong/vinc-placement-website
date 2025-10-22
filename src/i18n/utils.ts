@@ -101,8 +101,14 @@ export function getLangFromUrl(url: URL | string): Language {
   const urlObj =
     typeof url === 'string' ? new URL(url, 'http://localhost') : url;
 
+  // Remove base path if present (for GitHub Pages deployment)
+  let pathname = urlObj.pathname;
+  if (pathname.startsWith('/vinc-placement-website/')) {
+    pathname = pathname.replace('/vinc-placement-website', '');
+  }
+
   // Extract the first segment of the pathname
-  const [, langSegment] = urlObj.pathname.split('/');
+  const [, langSegment] = pathname.split('/');
 
   // Check if the segment is a valid language code
   if (langSegment && LANGUAGES.includes(langSegment as Language)) {
