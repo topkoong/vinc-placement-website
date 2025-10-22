@@ -6,10 +6,10 @@ import sitemap from '@astrojs/sitemap';
 // Export Astro configuration with all required settings
 export default defineConfig({
   // Site URL - REQUIRED for sitemap and canonical URLs
-  site: 'https://www.vincplacement.com',
+  site: 'https://topkoong.github.io',
 
-  // Base path for deployment (use '/' for root domain)
-  base: '/',
+  // Base path for deployment (use repository name for GitHub Pages)
+  base: '/vinc-placement-website/',
 
   // Server configuration for development
   server: {
