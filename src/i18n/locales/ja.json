@@ -48,6 +48,47 @@
       }
     ]
   },
+  "services": {
+    "title": "当社のサービス",
+    "subtitle": "日本での機会を求めるタイ人労働者と信頼できる労働力を必要とする日本企業向けの完全ソリューション",
+    "workforce": {
+      "title": "労働力ソリューション・派遣",
+      "description": "ブルーカラーから専門職まで、あらゆる職種のエンドツーエンド採用・派遣サービス"
+    },
+    "engineering": {
+      "title": "エンジニアリング・技術サービス",
+      "description": "高度な技術スキルを持つタイ人エンジニアの専門的な配置サービス"
+    },
+    "training": {
+      "title": "事前研修・準備",
+      "description": "日本での職場への円滑な適応のための包括的な研修プログラム"
+    },
+    "testing": {
+      "title": "スキルテストセンター",
+      "description": "すべての候補者が各種技術スキルの国際基準を満たすことを保証する最先端のテストセンター"
+    },
+    "documentation": {
+      "title": "ビザ・書類サポート",
+      "description": "日本での就労に必要なすべての法的書類とビザ手続きの完全サポート"
+    },
+    "support": {
+      "title": "就職後サポート",
+      "description": "配置後の労働者と雇用主への継続的なサポート"
+    }
+  },
+  "testing_centre": {
+    "badge": "認定された卓越性",
+    "title": "最先端のスキルテストセンター",
+    "description": "VINCプレースメントは、タイ人候補者のスキルを厳格に評価・認定する最新の設備を備えたテストセンターを運営しています。これにより、日本に派遣するすべての労働者が最高の国際基準を満たし、雇用主に安心を提供します。",
+    "welding_stations": "溶接ステーション",
+    "certified_engineers": "認定エンジニア",
+    "schedule_testing": "テストをスケジュール",
+    "capabilities_title": "テストセンターの能力",
+    "meip_testing": "MEIPテスト",
+    "nde_testing": "NDEテスト",
+    "quality_assurance": "品質保証",
+    "standards_compliance": "基準遵守"
+  },
   "hero": {
     "title": "タイ・日本間人材ソリューションのリーダー",
     "subtitle": "日本の企業と熟練したタイ人労働者を全業界で結ぶ - 工場勤務からエンジニアまで",

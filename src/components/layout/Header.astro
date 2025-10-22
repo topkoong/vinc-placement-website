@@ -16,13 +16,13 @@ const { class: className = '' } = Astro.props;
 // Get current language from URL
 const lang = getLangFromUrl(Astro.url);
 
-// Navigation items
+// Navigation items with correct base path
 const navItems = [
-  { key: 'home', href: `/${lang}` },
-  { key: 'about', href: `/${lang}/about` },
-  { key: 'services', href: `/${lang}/services` },
-  { key: 'projects', href: `/${lang}/projects` },
-  { key: 'contact', href: `/${lang}/contact` },
+  { key: 'home', href: `/vinc-placement-website/${lang}` },
+  { key: 'about', href: `/vinc-placement-website/${lang}/about` },
+  { key: 'services', href: `/vinc-placement-website/${lang}/services` },
+  { key: 'projects', href: `/vinc-placement-website/${lang}/projects` },
+  { key: 'contact', href: `/vinc-placement-website/${lang}/contact` },
 ];
 
 // Language options
@@ -33,7 +33,11 @@ const languages = [
 ];
 
 // Get current path without language prefix for language switching
-const currentPath = Astro.url.pathname.replace(`/${lang}`, '') || '/';
+// Remove the base path and language prefix to get the clean path
+const basePath = '/vinc-placement-website';
+const fullPath = Astro.url.pathname;
+const pathWithoutBase = fullPath.replace(basePath, '');
+const currentPath = pathWithoutBase.replace(`/${lang}`, '') || '/';
 ---
 
 <header class={`bg-white/95 dark:bg-gray-900/95 shadow-lg border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-50 backdrop-blur-xl ${className}`}>
@@ -42,7 +46,7 @@ const currentPath = Astro.url.pathname.replace(`/${lang}`, '') || '/';
       
       <!-- Logo -->
       <div class="flex-shrink-0">
-        <a href={`/${lang}`} class="flex items-center" aria-label="VINC Placement Home">
+        <a href={`/vinc-placement-website/${lang}`} class="flex items-center" aria-label="VINC Placement Home">
           <Logo variant="full" size="md" />
         </a>
       </div>
@@ -95,7 +99,7 @@ const currentPath = Astro.url.pathname.replace(`/${lang}`, '') || '/';
             <div class="py-1">
               {languages.map((language) => (
                 <a
-                  href={`/${language.code}${currentPath}`}
+                  href={`/vinc-placement-website/${language.code}${currentPath}`}
                   class={`flex items-center px-4 py-2 text-sm transition-colors duration-200 ${
                     language.code === lang 
                       ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 font-medium' 
@@ -164,7 +168,7 @@ const currentPath = Astro.url.pathname.replace(`/${lang}`, '') || '/';
           <div class="space-y-1">
             {languages.map((language, index) => (
               <a
-                href={`/${language.code}${currentPath}`}
+                href={`/vinc-placement-website/${language.code}${currentPath}`}
                 class={`group flex items-center px-4 py-3 text-base transition-all duration-300 rounded-xl ${
                   language.code === lang 
                     ? 'bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 font-semibold shadow-sm' 
@@ -192,7 +196,7 @@ const currentPath = Astro.url.pathname.replace(`/${lang}`, '') || '/';
         <!-- Contact CTA -->
         <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
           <a
-            href={`/${lang}/contact`}
+            href={`/vinc-placement-website/${lang}/contact`}
             class="block w-full px-6 py-4 text-center text-base font-bold text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
           >
             {t(lang, 'nav.contact')}
