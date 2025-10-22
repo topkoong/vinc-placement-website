@@ -23,7 +23,7 @@ export const CONTACT_INFO: ContactInfo = {
   phone: ['+66-2-949-9572', '+66-2-949-9580'],
 
   // Contact email address
-  email: 'bluekiwitoey@gmail.com',
+  email: 'kanyas@vincplacement.com',
 
   // Google Maps link (for directions, not embedding)
   googleMapsUrl:
