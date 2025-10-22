@@ -1,175 +1,22 @@
 {
   "meta": {
-    "title": "VINCプレースメント | タイ・日本間人材ソリューション | 企業・求職者向け",
-    "description": "1988年創業、VINCプレースメントは日本の企業と熟練したタイ人労働者を結びます。10,000人以上のタイ人労働者を日本企業に派遣。日本の求人を探す、または建設・製造・エンジニアリングなど全業界でタイ人材を採用する。",
-    "keywords": "タイ人労働者日本, 日本求人タイ, 日本企業タイ人労働者, タイ日本人材派遣, 日本ブルーカラー求人, タイ人ブルーカラー労働者日本, タイ日本労働力派遣, 建設労働者日本, 製造労働者日本, 工業労働者日本, エンジニア採用タイ日本, 国際人材ソリューション, 日本就職エージェンシー, タイ求職者日本"
+    "title": "VINCプレースメント | タイ最大級の日本就職支援会社 | 10,000人以上の実績",
+    "description": "1988年創業、VINCプレースメントは10,000人以上のタイ人労働者を日本企業に送り出してきました。工場勤務からエンジニアまで、タイと日本を結ぶ信頼の人材サービス。",
+    "keywords": "タイ人労働者日本, 日本求人タイ, タイ人日本就職, VINCプレースメントバンコク, タイ人日本企業"
   },
   "nav": {
     "home": "ホーム",
     "about": "会社概要",
     "services": "サービス",
-    "projects": "プロジェクト実績",
+    "projects": "実績",
     "contact": "お問い合わせ"
   },
-  "about": {
-    "title": "VINCプレースメントについて",
-    "subtitle": "1988年からの信頼できるパートナー",
-    "established": "1988年バンコクで設立",
-    "description": "1988年創業以来、VINCプレースメントは日本の就職支援におけるタイの信頼できるパートナーです。工場のブルーカラー職から専門エンジニア職まで、あらゆる分野でタイ人労働者を日本に派遣することを専門としています。10,000件以上の成功した派遣実績と35年の経験により、タイ人労働者の願望と日本の雇用主のニーズの両方を理解しています。",
-    "quote": "タイ人労働者は日本の職場に卓越したスキル、献身、そして職業倫理をもたらします。私たちの使命は、文化の架け橋となり、タイ人材に機会を創出しながら、あらゆる業界の日本企業に卓越性を提供することです。",
-    "achievement": "過去5年間だけで、VINCは10,000人以上のタイ人労働者を日本の企業に成功裏に派遣し、工場労働者からエンジニア専門職まで、あらゆる分野で卓越性と文化的統合へのコミットメントを維持しています。",
-    "expertise_title": "包括的な労働力カテゴリー",
-    "expertise_description": "エントリーレベルの職から専門職まで、あらゆる職種でタイ人労働者を派遣しています。私たちの専門知識は多様な業界と役割に及びます：",
-    "expertise_areas": [
-      "工場労働者と組立オペレーター",
-      "建設労働者と熟練職人",
-      "エンジニア専門職と技術者",
-      "ホスピタリティとサービス労働者",
-      "製造・生産スタッフ",
-      "品質管理と検査員"
-    ],
-    "why_choose_title": "なぜVINCプレースメントを選ぶのか",
-    "why_choose_items": [
-      {
-        "title": "35年の実績",
-        "description": "1988年からの豊富な経験と10,000人以上の成功した派遣実績"
-      },
-      {
-        "title": "全業界対応",
-        "description": "工場からエンジニアまで、あらゆる職種での派遣実績"
-      },
-      {
-        "title": "文化的理解",
-        "description": "タイ人労働者と日本企業の両方のニーズを深く理解"
-      },
-      {
-        "title": "品質保証",
-        "description": "厳格な選考プロセスと継続的なサポート体制"
-      }
-    ]
-  },
-  "services": {
-    "title": "当社のサービス",
-    "subtitle": "日本での機会を求めるタイ人労働者と信頼できる労働力を必要とする日本企業向けの完全ソリューション",
-    "workforce": {
-      "title": "労働力ソリューション・派遣",
-      "description": "ブルーカラーから専門職まで、あらゆる職種のエンドツーエンド採用・派遣サービス",
-      "features": [
-        "タイ全土での労働者調達・採用",
-        "スキル評価と適性テスト",
-        "身元確認と書類整備",
-        "スキルと雇用主の要件に基づく職務マッチング",
-        "面接調整と準備サポート",
-        "契約交渉と条件設定"
-      ]
-    },
-    "engineering": {
-      "title": "エンジニアリング・技術サービス",
-      "description": "高度な技術スキルを持つタイ人エンジニアの専門的な配置サービス",
-      "features": [
-        "高度な技術スキルを持つエンジニアの専門的な配置",
-        "技術面接とスキル評価",
-        "プロジェクト要件に基づくマッチング",
-        "技術文書の翻訳と説明",
-        "技術研修と継続教育",
-        "専門資格の確認と更新"
-      ]
-    },
-    "training": {
-      "title": "事前研修・準備",
-      "description": "日本での職場への円滑な適応のための包括的な研修プログラム",
-      "features": [
-        "日本語会話とビジネス日本語",
-        "日本の職場文化とエチケット",
-        "安全プロトコルと規制遵守",
-        "技術スキル向上研修",
-        "生活スキルと日本での生活準備",
-        "文化的適応とコミュニケーション"
-      ]
-    },
-    "testing": {
-      "title": "スキルテストセンター",
-      "description": "すべての候補者が各種技術スキルの国際基準を満たすことを保証する最先端のテストセンター",
-      "features": [
-        "認定スキル評価",
-        "実践的職人テスト",
-        "安全コンプライアンスチェック",
-        "業界認定資格"
-      ]
-    },
-    "documentation": {
-      "title": "ビザ・書類サポート",
-      "description": "日本での就労に必要なすべての法的書類とビザ手続きの完全サポート",
-      "features": [
-        "就労ビザ申請の完全サポート",
-        "必要書類の準備と翻訳",
-        "領事館・大使館との連絡",
-        "健康診断と証明書取得",
-        "パスポートと身分証明書の更新",
-        "法的要件の遵守確認"
-      ]
-    },
-    "support": {
-      "title": "就職後サポート",
-      "description": "配置後の労働者と雇用主への継続的なサポート",
-      "features": [
-        "労働者向け24時間緊急ホットライン",
-        "翻訳・通訳サービス",
-        "職場問題解決",
-        "医療ナビゲーション支援",
-        "文化的適応カウンセリング",
-        "キャリア進歩ガイダンス"
-      ]
-    }
-  },
-  "testing_centre": {
-    "badge": "認定された卓越性",
-    "title": "最先端のスキルテストセンター",
-    "description": "VINCプレースメントは、タイ人候補者のスキルを厳格に評価・認定する最新の設備を備えたテストセンターを運営しています。これにより、日本に派遣するすべての労働者が最高の国際基準を満たし、雇用主に安心を提供します。",
-    "welding_stations": "溶接ステーション",
-    "certified_engineers": "認定エンジニア",
-    "schedule_testing": "テストをスケジュール",
-    "capabilities_title": "テストセンターの能力",
-    "meip_testing": "MEIPテスト",
-    "nde_testing": "NDEテスト",
-    "quality_assurance": "品質保証",
-    "standards_compliance": "基準遵守"
-  },
-  "contact": {
-    "title": "一緒に構築しましょう",
-    "subtitle": "人材ニーズについてご相談ください。当社のチームがお手伝いいたします。",
-    "address_label": "バンコク本社",
-    "address": "163/1 Nuanchan Road, Nuanchan, Buengkum, Bangkok, 10230, Thailand",
-    "phone": "電話",
-    "email": "Eメール",
-    "send_message": "メッセージを送る",
-    "name_placeholder": "お名前",
-    "email_placeholder": "Eメール",
-    "subject_placeholder": "件名",
-    "message_placeholder": "メッセージ",
-    "send_button": "メッセージを送る",
-    "view_map": "Googleマップで表示",
-    "form": {
-      "name": "お名前",
-      "email": "Eメール",
-      "subject": "件名",
-      "message": "メッセージ",
-      "submit": "送信"
-    }
-  },
-  "common": {
-    "learn_more": "詳細を見る",
-    "view_details": "詳細を見る",
-    "get_started": "始める",
-    "contact_us": "お問い合わせ",
-    "personnel": "人材"
-  },
-  "footer": {
-    "title": "タイ・日本間人材ソリューションのリーダー",
-    "subtitle": "日本の企業と熟練したタイ人労働者を全業界で結ぶ - 工場勤務からエンジニアまで",
-    "cta": "日本の求人を探す",
-    "learn_more": "タイ人材を採用する",
-    "badge": "プレミアム人材ソリューション",
+  "hero": {
+    "title": "タイ最大級の日本就職支援会社",
+    "subtitle": "工場勤務から専門エンジニアまで、タイ人労働者と日本のキャリアチャンスを結ぶ",
+    "cta": "日本でのキャリアを始める",
+    "learn_more": "日本の求人を見る",
+    "badge": "1988年創業",
     "scroll_text": "スクロールして探索",
     "carousel": {
       "slide1_title": "品質管理の卓越性",
@@ -182,20 +29,153 @@
       "slide4_alt": "技術スキル開発と研修プログラム"
     },
     "stats": {
-      "workers_label": "派遣されたタイ人労働者",
-      "companies_label": "日本企業",
-      "years_label": "年の経験",
-      "countries_label": "サービス提供国"
+      "workers_label": "タイ人労働者",
+      "companies_label": "企業",
+      "years_label": "年",
+      "countries_label": "国"
     }
   },
+  "about": {
+    "title": "VINCプレースメントについて",
+    "subtitle": "1988年からの信頼できるパートナー",
+    "established": "1988年バンコクで設立",
+    "description": "1988年創業以来、VINCプレースメントはタイで最も信頼される日本就職支援会社です。工場労働者からエンジニアまで、10,000人以上のタイ人を日本企業に送り出してきました。35年以上の経験により、タイ人労働者の夢と日本企業の基準の両方を理解しています。",
+    "quote": "タイ人労働者は、献身、スキル、信頼性を日本の職場にもたらします。私たちの使命はシンプル：タイ人材に人生を変える機会を創出し、日本企業に卓越性を提供することです。",
+    "achievement": "過去5年間だけで、10,000人以上のタイ人労働者を日本の全業界に配置し、品質、文化理解、そして永続的な成功という35年の評判を維持しています。",
+    "expertise_title": "工場労働者からエンジニアまで",
+    "expertise_description": "あなたのスキルレベルや業界に関係なく、日本での機会があります：",
+    "expertise_areas": [
+      "工場労働者・組立オペレーター",
+      "建設労働者・熟練職人",
+      "エンジニア・技術専門職",
+      "ホスピタリティ・サービス労働者",
+      "製造・生産スタッフ",
+      "品質管理・検査員"
+    ],
+    "why_choose_title": "10,000人以上がVINCを選んだ理由",
+    "why_choose_items": [
+      {
+        "title": "35年以上の信頼",
+        "description": "1988年創業、タイで最も長く続く日本就職支援会社として実績あり"
+      },
+      {
+        "title": "本物の仕事、本物の成功",
+        "description": "日本企業に成功裏に配置された10,000人以上の労働者 - 約束ではなく結果"
+      },
+      {
+        "title": "完全サポート",
+        "description": "面接準備から日本到着まで - あらゆるステップでサポート"
+      },
+      {
+        "title": "公正な待遇",
+        "description": "タイ人労働者を尊重する評判の良い日本企業とのみ協力"
+      }
+    ]
+  },
+  "services": {
+    "title": "タイ-日本完全就職サービス",
+    "subtitle": "日本で働くために必要なすべて - 求人探しから定着まで",
+    "workforce": {
+      "title": "求人紹介・採用支援",
+      "description": "あなたのスキルに最適な日本の仕事を見つけます",
+      "features": [
+        "500社以上の日本企業へアクセス",
+        "工場、建設、エンジニアリングの求人",
+        "無料スキル評価",
+        "面接準備",
+        "契約審査サポート",
+        "競争力のある給与"
+      ]
+    },
+    "engineering": {
+      "title": "専門職・エンジニア職",
+      "description": "大卒者や経験豊富な専門家向けの上位職",
+      "features": [
+        "大手企業のエンジニア職",
+        "技術専門職",
+        "専門資格認定",
+        "業界認証",
+        "キャリアアップ",
+        "プレミアム給与パッケージ"
+      ]
+    },
+    "training": {
+      "title": "出発前研修",
+      "description": "日本での生活と仕事の完全準備",
+      "features": [
+        "日本語研修",
+        "職場文化・エチケット",
+        "日本での生活基礎",
+        "技術スキル研修",
+        "安全手順",
+        "模擬面接"
+      ]
+    },
+    "testing": {
+      "title": "スキルテスト・認証",
+      "description": "国際的に認められた認証",
+      "features": [
+        "18の溶接テストステーション",
+        "NDEテスト機能",
+        "MEIP認証",
+        "JIS資格",
+        "機器操作テスト",
+        "公式証明書"
+      ]
+    },
+    "documentation": {
+      "title": "ビザ・書類手続き",
+      "description": "すべての書類手続きを代行",
+      "features": [
+        "就労ビザ申請",
+        "書類翻訳",
+        "健康診断",
+        "無犯罪証明書",
+        "パスポートサポート",
+        "大使館調整"
+      ]
+    },
+    "support": {
+      "title": "日本でのサポート",
+      "description": "日本到着後も24時間サポート",
+      "features": [
+        "24時間タイ語ホットライン",
+        "翻訳サービス",
+        "職場問題支援",
+        "医療ナビゲーション",
+        "文化適応サポート",
+        "銀行手続き支援"
+      ]
+    }
+  },
+  "testing_centre": {
+    "badge": "認定された卓越性",
+    "title": "VINCテストセンター",
+    "description": "国際基準を保証する最先端施設",
+    "welding_stations": "溶接ステーション",
+    "certified_engineers": "認定エンジニア",
+    "schedule_testing": "テスト予約",
+    "capabilities_title": "認証",
+    "meip_testing": "MEIPテスト",
+    "nde_testing": "NDEテスト",
+    "quality_assurance": "品質保証",
+    "standards_compliance": "JIS基準"
+  },
+  "common": {
+    "learn_more": "詳細を見る",
+    "view_details": "詳細を表示",
+    "get_started": "始める",
+    "contact_us": "お問い合わせ",
+    "personnel": "労働者"
+  },
   "projects": {
-    "title": "プロジェクトポートフォリオ",
-    "subtitle": "世界中で完了および進行中のプロジェクトを通じて当社の専門知識を紹介",
-    "all": "すべてのプロジェクト",
+    "title": "労働者の就職先",
+    "subtitle": "タイ人労働者を採用している実際の日本企業",
+    "all": "すべて",
     "infrastructure": "インフラ",
     "manufacturing": "製造",
-    "discuss_cta": "プロジェクトについて相談する",
-    "more_projects": "これらは世界中で完了した500以上のプロジェクトのほんの一例です。",
+    "discuss_cta": "今すぐ応募",
+    "more_projects": "500社以上のパートナー企業のうちわずか6例",
     "list": [
       {
         "id": 1,
@@ -203,9 +183,9 @@
         "location": "東京、日本",
         "year": "2016",
         "category": "infrastructure",
-        "description": "タイ人エンジニアの専門知識を活用した大規模タワー建設プロジェクト",
+        "description": "タイ人エンジニアの専門知識による大規模タワー建設",
         "personnel": "200+",
-        "image": "https://images.unsplash.com/photo-1694175008614-0a336198fa98?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "image": "https://images.unsplash.com/photo-1694175008614-0a336198fa98?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80"
       },
       {
         "id": 2,
@@ -215,7 +195,7 @@
         "category": "manufacturing",
         "description": "先進製造施設の建設",
         "personnel": "150+",
-        "image": "https://plus.unsplash.com/premium_photo-1742418151224-85deebc22419?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "image": "https://plus.unsplash.com/premium_photo-1742418151224-85deebc22419?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80"
       },
       {
         "id": 3,
@@ -223,9 +203,9 @@
         "location": "横浜、日本",
         "year": "2017",
         "category": "infrastructure",
-        "description": "モダンな港湾ターミナルの建設と試運転",
+        "description": "モダンな港湾ターミナル建設",
         "personnel": "300+",
-        "image": "https://images.unsplash.com/photo-1696381222228-81208ce4564e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "image": "https://images.unsplash.com/photo-1696381222228-81208ce4564e?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80"
       },
       {
         "id": 4,
@@ -233,9 +213,9 @@
         "location": "名古屋、日本",
         "year": "2019",
         "category": "manufacturing",
-        "description": "大規模自動車製造施設の開発",
+        "description": "大規模自動車製造施設",
         "personnel": "500+",
-        "image": "https://plus.unsplash.com/premium_photo-1742418312039-e3979172d585?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "image": "https://plus.unsplash.com/premium_photo-1742418312039-e3979172d585?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80"
       },
       {
         "id": 5,
@@ -245,7 +225,7 @@
         "category": "infrastructure",
         "description": "主要橋梁インフラ開発",
         "personnel": "250+",
-        "image": "https://images.unsplash.com/photo-1669576092983-88cb817b37f6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "image": "https://images.unsplash.com/photo-1669576092983-88cb817b37f6?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80"
       },
       {
         "id": 6,
@@ -255,11 +235,53 @@
         "category": "infrastructure",
         "description": "モダンな発電所建設",
         "personnel": "400+",
-        "image": "https://images.unsplash.com/photo-1708518370757-38e07a989946?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "image": "https://images.unsplash.com/photo-1708518370757-38e07a989946?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80"
       }
     ]
   },
-  "common": {
-    "personnel": "人材"
+  "contact": {
+    "title": "日本でのキャリアを始めませんか？",
+    "subtitle": "今すぐお問い合わせ - 無料相談",
+    "address_label": "バンコク本社",
+    "address": "163/1 Nuanchan Road, Buengkum, Bangkok 10230, Thailand",
+    "phone": "電話",
+    "email": "メール",
+    "view_map": "Googleマップで表示",
+    "form": {
+      "name": "氏名",
+      "name_placeholder": "お名前",
+      "email": "メール",
+      "email_placeholder": "your.email@example.com",
+      "phone": "電話",
+      "phone_placeholder": "+66 XX XXX XXXX",
+      "company": "職業/スキル",
+      "company_placeholder": "例：工場労働者、溶接工",
+      "message": "自己紹介",
+      "message_placeholder": "日本でどのような仕事を探していますか？",
+      "submit": "送信",
+      "sending": "送信中...",
+      "success": "ありがとうございます！24時間以内にご連絡いたします。",
+      "error": "送信できません。メール: bluekiwitoey@gmail.com"
+    }
+  },
+  "footer": {
+    "about_title": "VINCプレースメント",
+    "about_text": "1988年創業、タイで最も信頼される日本就職支援会社。10,000人以上の実績。",
+    "quick_links": "クイックリンク",
+    "services_title": "サービス",
+    "contact_title": "お問い合わせ",
+    "newsletter": "求人通知",
+    "newsletter_description": "最新の日本求人情報を受け取る",
+    "newsletter_placeholder": "メールアドレス",
+    "newsletter_button": "登録",
+    "contact_us": "お問い合わせ",
+    "copyright": "© 2025 VINC Placement Co., Ltd. 無断複写・転載を禁じます。",
+    "slogan": "1988年からタイと日本を結ぶ"
+  },
+  "language": {
+    "select": "言語",
+    "en": "English",
+    "ja": "日本語",
+    "th": "ไทย"
   }
 }

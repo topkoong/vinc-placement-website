@@ -1,22 +1,22 @@
 {
   "meta": {
-    "title": "VINC Placement | Premier Thailand-Japan Workforce Solutions | Employers & Workers",
-    "description": "Since 1988, VINC Placement connects Japanese employers with skilled Thai workers. Over 10,000 Thai workers placed in Japanese companies. Find jobs in Japan or hire Thai talent for construction, manufacturing, engineering, and all industries.",
-    "keywords": "Thai workers Japan, Japan jobs Thailand, Japanese employers Thai workers, Thailand Japan workforce, Japanese blue collar jobs, Thai blue collar workers Japan, workforce deployment Thailand Japan, construction workers Japan, manufacturing workers Japan, industrial workers Japan, engineering recruitment Thailand Japan, international workforce solutions, Japan employment agency, Thai job seekers Japan"
+    "title": "VINC Placement | Thailand's Premier Job Placement Agency for Japan | 10,000+ Workers Placed",
+    "description": "Since 1988, VINC Placement has connected 10,000+ skilled Thai workers with Japanese employers. From factory workers to engineers - we bridge Thailand and Japan with trusted workforce solutions.",
+    "keywords": "Thai workers Japan, Japan jobs Thailand, Thai job placement Japan, VINC Placement Bangkok, Thai workers Japanese companies"
   },
   "nav": {
     "home": "Home",
-    "about": "About Us",
+    "about": "About",
     "services": "Services",
     "projects": "Projects",
     "contact": "Contact"
   },
   "hero": {
-    "title": "Premier Thailand-Japan Workforce Solutions",
-    "subtitle": "Connecting Japanese employers with skilled Thai workers across all industries - from factory work to professional engineering roles",
-    "cta": "Find Jobs in Japan",
-    "learn_more": "Hire Thai Workers",
-    "badge": "Premier Workforce Solutions",
+    "title": "Thailand's Premier Job Placement Agency for Japan",
+    "subtitle": "Connecting skilled Thai workers with career opportunities across Japan - from factory work to professional engineering roles",
+    "cta": "Start Your Japan Career",
+    "learn_more": "View Jobs in Japan",
+    "badge": "Trusted Since 1988",
     "scroll_text": "Scroll to explore",
     "carousel": {
       "slide1_title": "Quality Control Excellence",
@@ -29,166 +29,153 @@
       "slide4_alt": "Technical skill development and training programs"
     },
     "stats": {
-      "workers_label": "Thai Workers Placed",
-      "companies_label": "Japanese Companies",
-      "years_label": "Years Experience",
-      "countries_label": "Countries Served"
+      "workers_label": "Thai Workers",
+      "companies_label": "Companies",
+      "years_label": "Years",
+      "countries_label": "Countries"
     }
   },
   "about": {
     "title": "About VINC Placement",
     "subtitle": "Your Trusted Partner Since 1988",
     "established": "Established in Bangkok in 1988",
-    "description": "Since 1988, VINC Placement has been Thailand's trusted partner for Japanese job placement. We specialize in preparing and placing Thai workers in Japan across all sectors - from blue-collar factory positions to specialized engineering roles. With over 10,000 successful placements and 35 years of experience, we understand both Thai workers' aspirations and Japanese employers' needs.",
-    "quote": "Thai workers bring exceptional skill, dedication, and work ethic to Japanese workplaces. Our mission is to bridge cultures and create opportunities for Thai talent while delivering excellence to Japanese companies across all industries.",
-    "achievement": "Over the past five years alone, VINC has successfully placed more than 10,000 Thai workers in Japanese companies across all sectors - from factory workers to engineering professionals - maintaining our commitment to excellence and cultural integration.",
-    "expertise_title": "Our Comprehensive Workforce Categories",
-    "expertise_description": "We place Thai workers across all job categories, from entry-level positions to specialized professionals. Our expertise spans diverse industries and roles including:",
+    "description": "Since 1988, VINC Placement has been Thailand's most trusted partner for Japanese job placement. We've successfully placed over 10,000 Thai workers in Japan - from factory floors to engineering firms. With 35+ years of experience, we understand both Thai workers' dreams and Japanese employers' standards.",
+    "quote": "Thai workers bring exceptional dedication, skill, and reliability to Japanese workplaces. Our mission is simple: create life-changing opportunities for Thai talent while delivering excellence to Japanese companies.",
+    "achievement": "In the past five years alone, we've placed 10,000+ Thai workers with Japanese employers across all industries - maintaining our 35-year reputation for quality, cultural understanding, and lasting success.",
+    "expertise_title": "From Factory Workers to Engineers",
+    "expertise_description": "No matter your skill level or industry, we have opportunities in Japan for you:",
     "expertise_areas": [
-      "Factory workers and assembly operators",
-      "Construction laborers and skilled trades",
-      "Engineering professionals and technicians",
-      "Hospitality and service workers",
-      "Manufacturing and production staff",
-      "Quality control and inspection roles",
-      "Technical and specialized positions",
-      "Management and supervisory roles"
+      "Factory workers & assembly operators",
+      "Construction workers & skilled trades",
+      "Engineers & technical professionals",
+      "Hospitality & service workers",
+      "Manufacturing & production staff",
+      "Quality control & inspection roles"
     ],
-    "why_choose_title": "Why Choose VINC Placement",
+    "why_choose_title": "Why 10,000+ Workers Chose VINC",
     "why_choose_items": [
       {
-        "title": "Proven Track Record",
-        "description": "35+ years of consistent excellence in workforce deployment across Asia"
+        "title": "35+ Years of Trust",
+        "description": "Thailand's longest-running Japan placement agency with proven results since 1988"
       },
       {
-        "title": "Rigorous Screening",
-        "description": "Comprehensive evaluation process ensuring only top-tier talent"
+        "title": "Real Jobs, Real Success",
+        "description": "10,000+ workers successfully placed in Japanese companies - results, not promises"
       },
       {
-        "title": "Project-Specific Training",
-        "description": "Customized orientation programs tailored to your project requirements"
+        "title": "Complete Support",
+        "description": "From interview prep to arrival in Japan - we're with you every step"
       },
       {
-        "title": "International Experience",
-        "description": "Workforce with proven success in diverse global project environments"
+        "title": "Fair Treatment",
+        "description": "We only work with reputable Japanese employers who respect Thai workers"
       }
     ]
   },
   "services": {
-    "title": "Comprehensive Thai-Japan Workforce Services",
-    "subtitle": "Complete solutions for Thai workers seeking opportunities in Japan and Japanese employers needing reliable workforce",
+    "title": "Complete Thailand-Japan Employment Services",
+    "subtitle": "Everything you need to work in Japan - from finding jobs to settling in",
     "workforce": {
-      "title": "Workforce Solutions & Placement",
-      "description": "End-to-end recruitment and placement services for all job categories from blue-collar to professional roles",
+      "title": "Job Placement & Recruitment",
+      "description": "We find the perfect Japanese job match for your skills",
       "features": [
-        "Worker sourcing and recruitment across Thailand",
-        "Skills assessment and aptitude testing",
-        "Background verification and documentation",
-        "Job matching based on skills and employer requirements",
-        "Contract negotiation and processing",
-        "Pre-departure orientation and briefings"
+        "Access to 500+ Japanese companies",
+        "Jobs in factory, construction, engineering",
+        "Free skills assessment",
+        "Interview preparation",
+        "Contract review support",
+        "Competitive salaries"
       ]
     },
     "engineering": {
-      "title": "Engineering & Technical Recruitment",
-      "description": "Specialized recruitment for engineering and technical roles requiring higher qualifications",
+      "title": "Professional & Engineering Roles",
+      "description": "Higher-level positions for graduates and professionals",
       "features": [
-        "Engineering graduate recruitment from Thai universities",
-        "Professional qualification verification",
-        "Technical skills assessment",
-        "Industry-specific certifications",
-        "Specialized project matching",
-        "Professional development programs"
+        "Engineering positions in major companies",
+        "Technical specialist roles",
+        "Professional qualification recognition",
+        "Industry certifications",
+        "Career advancement",
+        "Premium salary packages"
       ]
     },
     "training": {
-      "title": "Training & Development Centre",
-      "description": "Comprehensive pre-departure training to prepare Thai workers for success in Japan",
+      "title": "Pre-Departure Training",
+      "description": "Get fully prepared for life and work in Japan",
       "features": [
-        "Japanese language training (survival to JLPT)",
-        "Cultural orientation and workplace etiquette",
+        "Japanese language training",
+        "Workplace culture & etiquette",
+        "Living in Japan basics",
         "Technical skills training",
-        "Safety procedures and protocols",
-        "Life skills for living in Japan",
-        "Mock workplace simulations"
+        "Safety procedures",
+        "Mock interviews"
       ]
     },
     "testing": {
-      "title": "Testing & Certification Centre",
-      "description": "State-of-the-art facility for skills testing, certification, and quality assurance",
+      "title": "Skills Testing & Certification",
+      "description": "Internationally recognized certifications",
       "features": [
-        "18 fully equipped welding stations",
-        "NDE testing (radiographic, ultrasonic, magnetic particle)",
-        "MEIP certification for all construction trades",
-        "Japanese Industrial Standards compliance",
-        "Pre-employment skills evaluation",
-        "Equipment operation proficiency testing"
+        "18 welding testing stations",
+        "NDE testing capabilities",
+        "MEIP certification",
+        "JIS qualification",
+        "Equipment operation testing",
+        "Official certificates"
       ]
     },
     "documentation": {
-      "title": "Documentation & Visa Support",
-      "description": "Complete assistance with legal requirements for working in Japan",
+      "title": "Visa & Documentation",
+      "description": "We handle all paperwork for you",
       "features": [
-        "Japanese work visa application and processing",
-        "Work permit documentation",
-        "Health checks and medical clearances",
-        "Police clearances and background checks",
-        "Contract preparation and review",
-        "Japanese embassy liaison"
+        "Work visa application",
+        "Document translation",
+        "Health checks",
+        "Police clearance",
+        "Passport support",
+        "Embassy coordination"
       ]
     },
     "support": {
-      "title": "Post-Placement Support",
-      "description": "Continuous support for workers and employers after placement",
+      "title": "In-Japan Support",
+      "description": "24/7 support after you arrive in Japan",
       "features": [
-        "24/7 emergency hotline for workers",
-        "Translation and interpretation services",
-        "Workplace issue resolution",
-        "Healthcare navigation assistance",
-        "Cultural adjustment counseling",
-        "Career progression guidance"
+        "24/7 Thai-speaking hotline",
+        "Translation services",
+        "Workplace issue help",
+        "Healthcare navigation",
+        "Cultural adjustment support",
+        "Banking assistance"
       ]
     }
   },
   "testing_centre": {
-    "badge": "Premium Service",
+    "badge": "Certified Excellence",
     "title": "VINC Testing Centre",
-    "description": "State-of-the-art testing facility preparing Thai workers for Japanese workplace standards",
+    "description": "State-of-the-art facility ensuring international standards",
     "welding_stations": "Welding Stations",
     "certified_engineers": "Certified Engineers",
-    "schedule_testing": "Schedule Testing",
-    "capabilities_title": "Testing Capabilities",
-    "meip_testing": "MEIP Testing & Certification",
-    "nde_testing": "NDE Radiographic Testing",
-    "quality_assurance": "Quality Assurance Programs",
-    "standards_compliance": "International Standards Compliance"
+    "schedule_testing": "Book Test",
+    "capabilities_title": "Certifications",
+    "meip_testing": "MEIP Testing",
+    "nde_testing": "NDE Testing",
+    "quality_assurance": "Quality Assurance",
+    "standards_compliance": "JIS Standards"
   },
   "common": {
     "learn_more": "Learn More",
     "view_details": "View Details",
     "get_started": "Get Started",
     "contact_us": "Contact Us",
-    "personnel": "Personnel"
-  },
-  "stats": {
-    "years": "35+",
-    "years_label": "Years of Excellence",
-    "personnel": "10,000+",
-    "personnel_label": "Personnel Deployed",
-    "projects": "500+",
-    "projects_label": "Successful Projects",
-    "countries": "20+",
-    "countries_label": "Countries Served"
+    "personnel": "Workers"
   },
   "projects": {
-    "title": "Project Portfolio",
-    "subtitle": "Showcasing our expertise through completed and ongoing projects worldwide",
-    "view_details": "View Project Details",
+    "title": "Where Our Workers Go",
+    "subtitle": "Real Japanese companies hiring Thai workers",
     "all": "All Projects",
     "infrastructure": "Infrastructure",
     "manufacturing": "Manufacturing",
-    "discuss_cta": "Discuss Your Project",
-    "more_projects": "These are just a few examples of our 500+ completed projects worldwide.",
+    "discuss_cta": "Apply Now",
+    "more_projects": "Just 6 examples of 500+ Japanese employer partners",
     "list": [
       {
         "id": 1,
@@ -196,9 +183,9 @@
         "location": "Tokyo, Japan",
         "year": "2016",
         "category": "infrastructure",
-        "description": "Major tower construction project with Thai engineering expertise",
+        "description": "Major tower construction with Thai engineering expertise",
         "personnel": "200+",
-        "image": "https://images.unsplash.com/photo-1694175008614-0a336198fa98?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "image": "https://images.unsplash.com/photo-1694175008614-0a336198fa98?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80"
       },
       {
         "id": 2,
@@ -208,7 +195,7 @@
         "category": "manufacturing",
         "description": "Advanced manufacturing facility construction",
         "personnel": "150+",
-        "image": "https://plus.unsplash.com/premium_photo-1742418151224-85deebc22419?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "image": "https://plus.unsplash.com/premium_photo-1742418151224-85deebc22419?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80"
       },
       {
         "id": 3,
@@ -216,9 +203,9 @@
         "location": "Yokohama, Japan",
         "year": "2017",
         "category": "infrastructure",
-        "description": "Modern port terminal construction and commissioning",
+        "description": "Modern port terminal construction",
         "personnel": "300+",
-        "image": "https://images.unsplash.com/photo-1696381222228-81208ce4564e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "image": "https://images.unsplash.com/photo-1696381222228-81208ce4564e?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80"
       },
       {
         "id": 4,
@@ -226,9 +213,9 @@
         "location": "Nagoya, Japan",
         "year": "2019",
         "category": "manufacturing",
-        "description": "Major automotive manufacturing facility development",
+        "description": "Major automotive manufacturing facility",
         "personnel": "500+",
-        "image": "https://plus.unsplash.com/premium_photo-1742418312039-e3979172d585?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "image": "https://plus.unsplash.com/premium_photo-1742418312039-e3979172d585?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80"
       },
       {
         "id": 5,
@@ -238,7 +225,7 @@
         "category": "infrastructure",
         "description": "Major bridge infrastructure development",
         "personnel": "250+",
-        "image": "https://images.unsplash.com/photo-1669576092983-88cb817b37f6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "image": "https://images.unsplash.com/photo-1669576092983-88cb817b37f6?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80"
       },
       {
         "id": 6,
@@ -248,52 +235,48 @@
         "category": "infrastructure",
         "description": "Modern power station construction",
         "personnel": "400+",
-        "image": "https://images.unsplash.com/photo-1708518370757-38e07a989946?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "image": "https://images.unsplash.com/photo-1708518370757-38e07a989946?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80"
       }
     ]
   },
   "contact": {
-    "title": "Let's Build Together",
-    "subtitle": "Ready to discuss your workforce needs? Our team is here to help.",
+    "title": "Ready to Start Your Japan Journey?",
+    "subtitle": "Contact us today - free consultation",
     "address_label": "Bangkok Headquarters",
-    "address": "163/1 Nuanchan Road, Nuanchan, Buengkum, Bangkok 10230, Thailand",
+    "address": "163/1 Nuanchan Road, Buengkum, Bangkok 10230, Thailand",
     "phone": "Phone",
     "email": "Email",
     "view_map": "View on Google Maps",
     "form": {
       "name": "Full Name",
-      "name_placeholder": "John Smith",
-      "email": "Email Address",
-      "email_placeholder": "john.smith@company.com",
-      "phone": "Phone Number",
-      "phone_placeholder": "+66 2 XXX XXXX",
-      "company": "Company Name",
-      "company_placeholder": "Your Company",
-      "message": "Project Requirements",
-      "message_placeholder": "Tell us about your project and workforce needs...",
-      "submit": "Send Inquiry",
+      "name_placeholder": "Your full name",
+      "email": "Email",
+      "email_placeholder": "your.email@example.com",
+      "phone": "Phone",
+      "phone_placeholder": "+66 XX XXX XXXX",
+      "company": "Occupation/Skills",
+      "company_placeholder": "e.g., Factory worker, Welder",
+      "message": "Tell Us About Yourself",
+      "message_placeholder": "What job in Japan are you looking for?",
+      "submit": "Send Message",
       "sending": "Sending...",
-      "success": "Thank you! We'll respond within 24 hours.",
-      "error": "Unable to send message. Please email us directly at bluekiwitoey@gmail.com"
+      "success": "Thank you! We'll contact you within 24 hours.",
+      "error": "Unable to send. Please email: bluekiwitoey@gmail.com"
     }
   },
   "footer": {
-    "about_title": "About VINC Placement",
-    "about_text": "Asia's premier workforce solutions provider since 1988, specializing in Civil & Structural Engineering personnel deployment for international projects.",
+    "about_title": "VINC Placement",
+    "about_text": "Since 1988, Thailand's most trusted Japan job placement agency. 10,000+ Thai workers placed.",
     "quick_links": "Quick Links",
-    "our_services": "Our Services",
-    "services_title": "Our Services",
-    "contact_title": "Get In Touch",
-    "newsletter": "Newsletter",
-    "newsletter_description": "Subscribe to get the latest updates",
-    "email_placeholder": "Enter your email",
-    "newsletter_placeholder": "Your email address",
-    "subscribe_button": "Subscribe",
+    "services_title": "Services",
+    "contact_title": "Contact",
+    "newsletter": "Job Alerts",
+    "newsletter_description": "Get latest Japan job openings",
+    "newsletter_placeholder": "Your email",
     "newsletter_button": "Subscribe",
-    "rights_reserved": "All rights reserved",
-    "contact_us": "Contact Us",
+    "contact_us": "Get in Touch",
     "copyright": "© 2025 VINC Placement Co., Ltd. All rights reserved.",
-    "slogan": "Building Asia's Future, One Project at a Time"
+    "slogan": "Connecting Thailand and Japan Since 1988"
   },
   "language": {
     "select": "Language",
