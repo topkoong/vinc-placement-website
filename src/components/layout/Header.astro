@@ -33,11 +33,39 @@ const languages = [
 ];
 
 // Get current path without language prefix for language switching
-// Remove the base path and language prefix to get the clean path
 const basePath = '/vinc-placement-website';
 const fullPath = Astro.url.pathname;
-const pathWithoutBase = fullPath.replace(basePath, '');
-const currentPath = pathWithoutBase.replace(`/${lang}`, '') || '/';
+
+// Remove base path first
+let pathWithoutBase = fullPath.startsWith(basePath) 
+  ? fullPath.slice(basePath.length) 
+  : fullPath;
+
+// Ensure we have a leading slash
+if (!pathWithoutBase.startsWith('/')) {
+  pathWithoutBase = '/' + pathWithoutBase;
+}
+
+// Remove language prefix (could be /en, /ja, or /th)
+const languageCodes = ['en', 'ja', 'th'];
+let currentPath = pathWithoutBase;
+
+for (const langCode of languageCodes) {
+  if (pathWithoutBase === `/${langCode}` || pathWithoutBase === `/${langCode}/`) {
+    // We're on the homepage of a language
+    currentPath = '/';
+    break;
+  } else if (pathWithoutBase.startsWith(`/${langCode}/`)) {
+    // We're on a subpage, remove the language prefix
+    currentPath = pathWithoutBase.slice(langCode.length + 1);
+    break;
+  }
+}
+
+// Ensure currentPath starts with /
+if (!currentPath.startsWith('/')) {
+  currentPath = '/' + currentPath;
+}
 ---
 
 <header class={`bg-white/95 dark:bg-gray-900/95 shadow-lg border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-50 backdrop-blur-xl ${className}`}>
@@ -163,7 +191,7 @@ const currentPath = pathWithoutBase.replace(`/${lang}`, '') || '/';
         <!-- Mobile Language Options -->
         <div class="space-y-3">
           <div class="px-4 py-2 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-            {t('language.select', lang)}
+            {t(lang, 'language.select')}
           </div>
           <div class="space-y-1">
             {languages.map((language, index) => (
@@ -287,10 +315,10 @@ const currentPath = pathWithoutBase.replace(`/${lang}`, '') || '/';
   const languageLinks = document.querySelectorAll('a[href*="/en/"], a[href*="/ja/"], a[href*="/th/"]');
   languageLinks.forEach(link => {
     link.addEventListener('click', (e) => {
-      const href = e.currentTarget.getAttribute('href');
+      const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
       if (href) {
-        const langCode = href.split('/')[1];
-        if (['en', 'ja', 'th'].includes(langCode)) {
+        const langCode = href.split('/').find(segment => ['en', 'ja', 'th'].includes(segment));
+        if (langCode && ['en', 'ja', 'th'].includes(langCode)) {
           localStorage.setItem('preferred-language', langCode);
         }
       }

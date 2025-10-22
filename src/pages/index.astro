@@ -139,25 +139,19 @@
         // Supported languages
         const supportedLangs = ['en', 'ja', 'th'];
 
-        // Always default to Japanese unless specifically Thai
-        // This ensures Japanese is the primary language for the site
-        let targetLang = 'ja'; // Default to Japanese
+        // Default language
+        let targetLang = 'ja'; // Japanese is the default
 
-        // Only redirect to Thai if browser is explicitly set to Thai
-        if (langCode === 'th') {
-          targetLang = 'th';
+        // Check for saved preference first (highest priority)
+        const savedLang = localStorage.getItem('preferred-language');
+        if (savedLang && supportedLangs.includes(savedLang)) {
+          targetLang = savedLang;
         }
-        // Only redirect to English if browser is explicitly set to English AND user hasn't visited before
-        else if (langCode === 'en') {
-          // Check if user has a language preference stored
-          const savedLang = localStorage.getItem('preferred-language');
-          if (savedLang && supportedLangs.includes(savedLang)) {
-            targetLang = savedLang;
-          } else {
-            // For first-time English users, still default to Japanese
-            targetLang = 'ja';
-          }
+        // Otherwise, detect from browser settings
+        else if (supportedLangs.includes(langCode)) {
+          targetLang = langCode;
         }
+        // If browser language is not supported, default to Japanese (already set)
 
         // Redirect to appropriate language version
         // Use relative path to maintain repository name in URL
@@ -165,7 +159,9 @@
         const basePath = currentPath.endsWith('/')
           ? currentPath.slice(0, -1)
           : currentPath;
-        window.location.href = `${basePath}/${targetLang}/`;
+
+        // Use replace() instead of href to avoid adding to browser history
+        window.location.replace(`${basePath}/${targetLang}/`);
       })();
     </script>
   </body>
