@@ -8,7 +8,67 @@
   <head>
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-    <title>VINC Placement - Redirecting...</title>
+    <title>VINC Placement | Premier Thailand-Japan Workforce Solutions</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name='description'
+      content='Since 1988, VINC Placement connects Japanese employers with skilled Thai workers. Over 10,000 Thai workers placed in Japanese companies. Find jobs in Japan or hire Thai talent for construction, manufacturing, engineering, and all industries.'
+    />
+    <meta
+      name='keywords'
+      content='Thai workers Japan, Japan jobs Thailand, Japanese employers Thai workers, Thailand Japan workforce, Japanese blue collar jobs, Thai blue collar workers Japan, workforce deployment Thailand Japan, construction workers Japan, manufacturing workers Japan, industrial workers Japan, engineering recruitment Thailand Japan, international workforce solutions, Japan employment agency, Thai job seekers Japan'
+    />
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property='og:type' content='website' />
+    <meta
+      property='og:url'
+      content='https://topkoong.github.io/vinc-placement-website/'
+    />
+    <meta
+      property='og:title'
+      content='VINC Placement | Premier Thailand-Japan Workforce Solutions'
+    />
+    <meta
+      property='og:description'
+      content='Since 1988, VINC Placement connects Japanese employers with skilled Thai workers. Over 10,000 Thai workers placed in Japanese companies. Find jobs in Japan or hire Thai talent for construction, manufacturing, engineering, and all industries.'
+    />
+    <meta
+      property='og:image'
+      content='https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+    />
+    <meta property='og:image:width' content='1200' />
+    <meta property='og:image:height' content='630' />
+    <meta property='og:locale' content='en_US' />
+
+    <!-- Twitter Card Meta Tags -->
+    <meta property='twitter:card' content='summary_large_image' />
+    <meta
+      property='twitter:url'
+      content='https://topkoong.github.io/vinc-placement-website/'
+    />
+    <meta
+      property='twitter:title'
+      content='VINC Placement | Premier Thailand-Japan Workforce Solutions'
+    />
+    <meta
+      property='twitter:description'
+      content='Since 1988, VINC Placement connects Japanese employers with skilled Thai workers. Over 10,000 Thai workers placed in Japanese companies. Find jobs in Japan or hire Thai talent for construction, manufacturing, engineering, and all industries.'
+    />
+    <meta
+      property='twitter:image'
+      content='https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'
+    />
+
+    <!-- Canonical URL -->
+    <link
+      rel='canonical'
+      href='https://topkoong.github.io/vinc-placement-website/'
+    />
+
+    <!-- Favicon -->
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
     <style>
       /* Loading screen styles */
       body {
@@ -45,6 +105,23 @@
     </style>
   </head>
   <body>
+    <!-- Hidden content for SEO and social media crawlers -->
+    <div
+      style='position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden;'
+    >
+      <h1>VINC Placement | Premier Thailand-Japan Workforce Solutions</h1>
+      <p>
+        Since 1988, VINC Placement connects Japanese employers with skilled Thai
+        workers. Over 10,000 Thai workers placed in Japanese companies. Find
+        jobs in Japan or hire Thai talent for construction, manufacturing,
+        engineering, and all industries.
+      </p>
+      <p>
+        Leading workforce solutions provider specializing in Thailand-Japan
+        personnel deployment across all sectors.
+      </p>
+    </div>
+
     <div class='loader'>
       <div class='spinner'></div>
       <p>リダイレクト中... / Redirecting... / กำลังเปลี่ยนเส้นทาง...</p>
@@ -83,7 +160,9 @@
         // Redirect to appropriate language version
         // Use relative path to maintain repository name in URL
         const currentPath = window.location.pathname;
-        const basePath = currentPath.endsWith('/') ? currentPath.slice(0, -1) : currentPath;
+        const basePath = currentPath.endsWith('/')
+          ? currentPath.slice(0, -1)
+          : currentPath;
         window.location.href = `${basePath}/${targetLang}/`;
       })();
     </script>

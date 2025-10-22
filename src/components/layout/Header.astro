@@ -31,6 +31,9 @@ const languages = [
   { code: 'ja', name: '日本語', flag: '🇯🇵' },
   { code: 'th', name: 'ไทย', flag: '🇹🇭' },
 ];
+
+// Get current path without language prefix for language switching
+const currentPath = Astro.url.pathname.replace(`/${lang}`, '') || '/';
 ---
 
 <header class={`bg-white/95 dark:bg-gray-900/95 shadow-lg border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-50 backdrop-blur-xl ${className}`}>
@@ -92,7 +95,7 @@ const languages = [
             <div class="py-1">
               {languages.map((language) => (
                 <a
-                  href={`/${language.code}`}
+                  href={`/${language.code}${currentPath}`}
                   class={`flex items-center px-4 py-2 text-sm transition-colors duration-200 ${
                     language.code === lang 
                       ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 font-medium' 
@@ -161,7 +164,7 @@ const languages = [
           <div class="space-y-1">
             {languages.map((language, index) => (
               <a
-                href={`/${language.code}`}
+                href={`/${language.code}${currentPath}`}
                 class={`group flex items-center px-4 py-3 text-base transition-all duration-300 rounded-xl ${
                   language.code === lang 
                     ? 'bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 font-semibold shadow-sm' 
