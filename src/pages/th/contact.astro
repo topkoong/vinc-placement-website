@@ -1,0 +1,34 @@
+---
+// Contact page for Thai
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Contact from '@/components/sections/Contact.astro';
+import { getLangFromUrl, t } from '@/i18n/utils';
+import { generateSEOMeta } from '@/utils/seo';
+
+// Get current language from URL
+const lang = getLangFromUrl(Astro.url);
+
+// Generate SEO metadata
+const seo = generateSEOMeta({
+  title: t(lang, 'contact.title'),
+  description: t(lang, 'contact.subtitle'),
+  keywords: ['contact', 'get in touch', 'inquiry', 'support', 'help'],
+  canonical: `/th/contact`,
+  alternates: [
+    { lang: 'en', href: '/en/contact' },
+    { lang: 'ja', href: '/ja/contact' },
+  ],
+});
+---
+
+<BaseLayout seo={seo}>
+  <Header slot='header' />
+
+  <main>
+    <Contact lang={lang} />
+  </main>
+
+  <Footer slot='footer' />
+</BaseLayout>

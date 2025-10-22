@@ -1,0 +1,134 @@
+---
+// Modern, professional logo for VINC Placement
+// Completely revamped design with contemporary aesthetics
+interface Props {
+  variant?: 'full' | 'icon' | 'text';  // Logo variations
+  size?: 'sm' | 'md' | 'lg' | 'xl';    // Size options
+  className?: string;                   // Additional CSS classes
+}
+
+const { variant = 'full', size = 'md', className = '' } = Astro.props;
+
+// Size mappings
+const sizes = {
+  sm: { container: 'h-8', icon: 'w-8 h-8', text: 'text-sm', subtext: 'text-xs' },
+  md: { container: 'h-12', icon: 'w-12 h-12', text: 'text-lg', subtext: 'text-xs' },
+  lg: { container: 'h-16', icon: 'w-16 h-16', text: 'text-2xl', subtext: 'text-sm' },
+  xl: { container: 'h-20', icon: 'w-20 h-20', text: 'text-3xl', subtext: 'text-base' }
+};
+---
+
+{variant === 'icon' && (
+  <!-- Icon Only - Modern Abstract Mark -->
+  <div class={`${sizes[size].icon} ${className}`}>
+    <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Gradient Definitions -->
+      <defs>
+        <linearGradient id="logo-gradient-icon" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+          <stop offset="50%" style="stop-color:#2563eb;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="logo-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      
+      <!-- Background Circle -->
+      <circle cx="60" cy="60" r="58" fill="url(#logo-gradient-icon)" opacity="0.08"/>
+      
+      <!-- Main Letter "V" - Bold and Modern -->
+      <path 
+        d="M 35 30 L 60 75 L 85 30" 
+        stroke="url(#logo-gradient-icon)" 
+        stroke-width="10" 
+        stroke-linecap="round" 
+        stroke-linejoin="round" 
+        fill="none"
+      />
+      
+      <!-- Letter "P" Integration -->
+      <path 
+        d="M 60 75 L 60 95" 
+        stroke="url(#logo-gradient-icon)" 
+        stroke-width="10" 
+        stroke-linecap="round"
+      />
+      <circle 
+        cx="73" 
+        cy="82" 
+        r="10" 
+        stroke="url(#logo-gradient-icon)" 
+        stroke-width="10" 
+        fill="none"
+      />
+      
+      <!-- Accent Elements - Represent People/Workforce -->
+      <circle cx="40" cy="95" r="4" fill="url(#logo-accent)"/>
+      <circle cx="60" cy="100" r="4" fill="url(#logo-accent)"/>
+      <circle cx="80" cy="95" r="4" fill="url(#logo-accent)"/>
+    </svg>
+  </div>
+)}
+
+{variant === 'text' && (
+  <!-- Text Only -->
+  <div class={`font-heading font-bold ${sizes[size].text} ${className}`}>
+    <div class="bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 bg-clip-text text-transparent">
+      VINC PLACEMENT
+    </div>
+    <div class={`${sizes[size].subtext} text-gray-500 font-normal tracking-wider`}>
+      WORKFORCE EXCELLENCE
+    </div>
+  </div>
+)}
+
+{variant === 'full' && (
+  <!-- Full Logo with Icon and Text -->
+  <div class={`flex items-center gap-3 ${className}`}>
+    <!-- Icon -->
+    <div class={sizes[size].icon}>
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="logo-gradient-full" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#2563eb;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+          </linearGradient>
+          <linearGradient id="logo-accent-full" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#0891b2;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <circle cx="60" cy="60" r="58" fill="url(#logo-gradient-full)" opacity="0.08"/>
+        <path d="M 35 30 L 60 75 L 85 30" stroke="url(#logo-gradient-full)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        <path d="M 60 75 L 60 95" stroke="url(#logo-gradient-full)" stroke-width="10" stroke-linecap="round"/>
+        <circle cx="73" cy="82" r="10" stroke="url(#logo-gradient-full)" stroke-width="10" fill="none"/>
+        <circle cx="40" cy="95" r="4" fill="url(#logo-accent-full)"/>
+        <circle cx="60" cy="100" r="4" fill="url(#logo-accent-full)"/>
+        <circle cx="80" cy="95" r="4" fill="url(#logo-accent-full)"/>
+      </svg>
+    </div>
+    
+    <!-- Text -->
+    <div>
+      <div class={`font-heading font-bold leading-tight ${sizes[size].text}`}>
+        <span class="bg-gradient-to-r from-primary-600 via-primary-700 to-primary-800 bg-clip-text text-transparent">
+          VINC PLACEMENT
+        </span>
+      </div>
+      <div class={`${sizes[size].subtext} text-gray-500 tracking-wider font-medium`}>
+        WORKFORCE EXCELLENCE
+      </div>
+    </div>
+  </div>
+)}
+
+<style>
+  /* Smooth gradient animation on hover */
+  svg:hover {
+    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3));
+    transition: filter 0.3s ease;
+  }
+</style>

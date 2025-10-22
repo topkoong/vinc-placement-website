@@ -1,0 +1,40 @@
+---
+// Projects page for Japanese
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import Projects from '@/components/sections/Projects.astro';
+import { getLangFromUrl, t } from '@/i18n/utils';
+import { generateSEOMeta } from '@/utils/seo';
+
+// Get current language from URL
+const lang = getLangFromUrl(Astro.url);
+
+// Generate SEO metadata
+const seo = generateSEOMeta({
+  title: t(lang, 'projects.title'),
+  description: t(lang, 'projects.subtitle'),
+  keywords: [
+    'projects',
+    'portfolio',
+    'construction',
+    'infrastructure',
+    'completed',
+  ],
+  canonical: `/ja/projects`,
+  alternates: [
+    { lang: 'en', href: '/en/projects' },
+    { lang: 'th', href: '/th/projects' },
+  ],
+});
+---
+
+<BaseLayout seo={seo}>
+  <Header slot='header' />
+
+  <main>
+    <Projects lang={lang} />
+  </main>
+
+  <Footer slot='footer' />
+</BaseLayout>

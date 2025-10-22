@@ -1,0 +1,259 @@
+---
+// For Workers section - targeting Thai workers seeking opportunities in Japan
+import { t } from '@/i18n/utils';
+import type { Language } from '@/types';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+
+// Job categories available for Thai workers in Japan
+const jobCategories = [
+  {
+    id: 'factory',
+    icon: 'factory',
+    title: lang === 'en' ? 'Factory & Manufacturing' : lang === 'ja' ? '工場・製造業' : 'โรงงานและการผลิต',
+    description: lang === 'en' 
+      ? 'Assembly line workers, machine operators, quality control'
+      : lang === 'ja'
+      ? '組立ライン作業員、機械オペレーター、品質管理'
+      : 'คนงานสายการผลิต ผู้ควบคุมเครื่องจักร การควบคุมคุณภาพ',
+    salary: lang === 'en' ? '¥180,000-¥250,000/month' : lang === 'ja' ? '月給18-25万円' : '180,000-250,000 เยน/เดือน'
+  },
+  {
+    id: 'construction',
+    icon: 'hammer',
+    title: lang === 'en' ? 'Construction & Building' : lang === 'ja' ? '建設・建築' : 'การก่อสร้างและอาคาร',
+    description: lang === 'en'
+      ? 'General laborers, skilled trades, site supervisors'
+      : lang === 'ja'
+      ? '一般作業員、熟練工、現場監督'
+      : 'คนงานทั่วไป ช่างฝีมือ ผู้ควบคุมงาน',
+    salary: lang === 'en' ? '¥200,000-¥300,000/month' : lang === 'ja' ? '月給20-30万円' : '200,000-300,000 เยน/เดือน'
+  },
+  {
+    id: 'engineering',
+    icon: 'building',
+    title: lang === 'en' ? 'Engineering & Technical' : lang === 'ja' ? 'エンジニアリング・技術' : 'วิศวกรรมและเทคนิค',
+    description: lang === 'en'
+      ? 'Civil engineers, CAD designers, project engineers'
+      : lang === 'ja'
+      ? '土木エンジニア、CADデザイナー、プロジェクトエンジニア'
+      : 'วิศวกรโยธา นักออกแบบ CAD วิศวกรโครงการ',
+    salary: lang === 'en' ? '¥300,000-¥500,000/month' : lang === 'ja' ? '月給30-50万円' : '300,000-500,000 เยน/เดือน'
+  },
+  {
+    id: 'hospitality',
+    icon: 'utensils',
+    title: lang === 'en' ? 'Hospitality & Service' : lang === 'ja' ? 'ホスピタリティ・サービス' : 'การต้อนรับและการบริการ',
+    description: lang === 'en'
+      ? 'Hotel staff, restaurant workers, elderly care'
+      : lang === 'ja'
+      ? 'ホテルスタッフ、レストラン従業員、介護'
+      : 'พนักงานโรงแรม พนักงานร้านอาหาร การดูแลผู้สูงอายุ',
+    salary: lang === 'en' ? '¥160,000-¥220,000/month' : lang === 'ja' ? '月給16-22万円' : '160,000-220,000 เยน/เดือน'
+  }
+];
+
+// Application process steps
+const processSteps = [
+  {
+    step: 1,
+    title: lang === 'en' ? 'Application & Assessment' : lang === 'ja' ? '応募・評価' : 'การสมัครและการประเมิน',
+    description: lang === 'en'
+      ? 'Submit your application and undergo skills assessment'
+      : lang === 'ja'
+      ? '応募書類を提出し、スキル評価を受ける'
+      : 'ส่งใบสมัครและผ่านการประเมินทักษะ',
+    duration: lang === 'en' ? '1-2 weeks' : lang === 'ja' ? '1-2週間' : '1-2 สัปดาห์'
+  },
+  {
+    step: 2,
+    title: lang === 'en' ? 'Training Program' : lang === 'ja' ? 'トレーニングプログラム' : 'โปรแกรมการฝึกอบรม',
+    description: lang === 'en'
+      ? 'Japanese language and cultural training'
+      : lang === 'ja'
+      ? '日本語と文化研修'
+      : 'การฝึกอบรมภาษาญี่ปุ่นและวัฒนธรรม',
+    duration: lang === 'en' ? '8-10 weeks' : lang === 'ja' ? '8-10週間' : '8-10 สัปดาห์'
+  },
+  {
+    step: 3,
+    title: lang === 'en' ? 'Documentation' : lang === 'ja' ? '書類手続き' : 'การจัดทำเอกสาร',
+    description: lang === 'en'
+      ? 'Visa processing and work permit documentation'
+      : lang === 'ja'
+      ? 'ビザ申請と就労許可証の手続き'
+      : 'การดำเนินการวีซ่าและเอกสารใบอนุญาตทำงาน',
+    duration: lang === 'en' ? '2-4 weeks' : lang === 'ja' ? '2-4週間' : '2-4 สัปดาห์'
+  },
+  {
+    step: 4,
+    title: lang === 'en' ? 'Deployment' : lang === 'ja' ? '派遣' : 'การส่งไป',
+    description: lang === 'en'
+      ? 'Travel to Japan and start your new career'
+      : lang === 'ja'
+      ? '日本への渡航と新しいキャリアの開始'
+      : 'เดินทางไปญี่ปุ่นและเริ่มอาชีพใหม่',
+    duration: lang === 'en' ? '1 week' : lang === 'ja' ? '1週間' : '1 สัปดาห์'
+  }
+];
+---
+
+<section class="py-20 bg-gradient-to-br from-primary-50 to-blue-50" id="for-workers">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Section Header -->
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6">
+        {lang === 'en' ? 'For Thai Workers' : lang === 'ja' ? 'タイ人労働者向け' : 'สำหรับแรงงานไทย'}
+      </h2>
+      <p class="text-xl text-gray-600 mb-4">
+        {lang === 'en' 
+          ? 'Start your journey to working in Japan with VINC Placement'
+          : lang === 'ja'
+          ? 'VINCプレースメントと一緒に日本での就職を始めましょう'
+          : 'เริ่มต้นการเดินทางไปทำงานในญี่ปุ่นกับ VINC Placement'
+        }
+      </p>
+      <p class="text-lg text-primary-600 font-semibold">
+        {lang === 'en' 
+          ? 'Higher wages, better opportunities, professional growth'
+          : lang === 'ja'
+          ? 'より高い賃金、より良い機会、専門的な成長'
+          : 'เงินเดือนสูงขึ้น โอกาสที่ดีขึ้น การเติบโตในอาชีพ'
+        }
+      </p>
+    </div>
+
+    <!-- Job Categories -->
+    <div class="mb-20">
+      <h3 class="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">
+        {lang === 'en' ? 'Available Job Categories' : lang === 'ja' ? '利用可能な職種' : 'ประเภทงานที่มีอยู่'}
+      </h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {jobCategories.map((category, index) => (
+          <div 
+            class="bg-white rounded-2xl p-6 shadow-soft hover:shadow-hard transition-all duration-300 hover:-translate-y-2 group"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <!-- Category Icon -->
+            <div class="w-16 h-16 bg-primary-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary-600 transition-colors duration-300">
+              <svg class="w-8 h-8 text-primary-600 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {category.icon === 'factory' ? (
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                ) : category.icon === 'hammer' ? (
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                ) : category.icon === 'building' ? (
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                ) : (
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6m8 0V9a2 2 0 00-2-2H9a2 2 0 00-2 2v4.01" />
+                )}
+              </svg>
+            </div>
+
+            <!-- Category Content -->
+            <h4 class="text-xl font-heading font-bold text-gray-900 mb-3">
+              {category.title}
+            </h4>
+            <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+              {category.description}
+            </p>
+            <div class="text-primary-600 font-semibold text-sm">
+              {category.salary}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Application Process -->
+    <div class="mb-20">
+      <h3 class="text-3xl font-heading font-bold text-gray-900 mb-12 text-center">
+        {lang === 'en' ? 'Application Process' : lang === 'ja' ? '応募プロセス' : 'กระบวนการสมัคร'}
+      </h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {processSteps.map((step, index) => (
+          <div 
+            class="relative bg-white rounded-2xl p-6 shadow-soft hover:shadow-hard transition-all duration-300"
+            style={`animation-delay: ${index * 0.2}s`}
+          >
+            <!-- Step Number -->
+            <div class="absolute -top-4 -left-4 w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center">
+              <span class="text-white font-bold text-lg">{step.step}</span>
+            </div>
+            
+            <!-- Step Content -->
+            <div class="pt-4">
+              <h4 class="text-lg font-heading font-bold text-gray-900 mb-3">
+                {step.title}
+              </h4>
+              <p class="text-gray-600 mb-4 text-sm leading-relaxed">
+                {step.description}
+              </p>
+              <div class="text-primary-600 font-semibold text-sm">
+                {step.duration}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center bg-white rounded-3xl p-8 md:p-12 shadow-soft">
+      <h3 class="text-3xl font-heading font-bold text-gray-900 mb-6">
+        {lang === 'en' ? 'Ready to Start Your Japan Career?' : lang === 'ja' ? '日本でのキャリアを始める準備はできていますか？' : 'พร้อมเริ่มต้นอาชีพในญี่ปุ่นแล้วหรือยัง?'}
+      </h3>
+      <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+        {lang === 'en'
+          ? 'Join thousands of Thai workers who have successfully built their careers in Japan with VINC Placement'
+          : lang === 'ja'
+          ? 'VINCプレースメントと一緒に日本でキャリアを築いた何千人ものタイ人労働者に参加しましょう'
+          : 'เข้าร่วมกับแรงงานไทยหลายพันคนที่ประสบความสำเร็จในการสร้างอาชีพในญี่ปุ่นกับ VINC Placement'
+        }
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a 
+          href={`/${lang}/contact`}
+          class="inline-flex items-center px-8 py-4 bg-primary-600 text-white font-semibold rounded-full hover:bg-primary-700 transition-colors"
+        >
+          {lang === 'en' ? 'Apply Now' : lang === 'ja' ? '今すぐ応募' : 'สมัครเลย'}
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+        
+        <a 
+          href={`/${lang}/contact`}
+          class="inline-flex items-center px-8 py-4 border-2 border-primary-600 text-primary-600 font-semibold rounded-full hover:bg-primary-600 hover:text-white transition-colors"
+        >
+          {lang === 'en' ? 'Learn More' : lang === 'ja' ? '詳細を見る' : 'เรียนรู้เพิ่มเติม'}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animation styles */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .grid > div {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+  }
+</style>

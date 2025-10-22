@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "VINCプレースメント | タイ・日本間人材ソリューション | 企業・求職者向け",
+    "description": "1988年創業、VINCプレースメントは日本の企業と熟練したタイ人労働者を結びます。10,000人以上のタイ人労働者を日本企業に派遣。日本の求人を探す、または建設・製造・エンジニアリングなど全業界でタイ人材を採用する。",
+    "keywords": "タイ人労働者日本, 日本求人タイ, 日本企業タイ人労働者, タイ日本人材派遣, 日本ブルーカラー求人, タイ人ブルーカラー労働者日本, タイ日本労働力派遣, 建設労働者日本, 製造労働者日本, 工業労働者日本, エンジニア採用タイ日本, 国際人材ソリューション, 日本就職エージェンシー, タイ求職者日本"
+  },
+  "nav": {
+    "home": "ホーム",
+    "about": "会社概要",
+    "services": "サービス",
+    "projects": "プロジェクト実績",
+    "contact": "お問い合わせ"
+  },
+  "hero": {
+    "title": "タイ・日本間人材ソリューションのリーダー",
+    "subtitle": "日本の企業と熟練したタイ人労働者を全業界で結ぶ - 工場勤務からエンジニアまで",
+    "cta": "日本の求人を探す",
+    "learn_more": "タイ人材を採用する",
+    "badge": "プレミアム人材ソリューション",
+    "scroll_text": "スクロールして探索",
+    "carousel": {
+      "slide1_title": "品質管理の卓越性",
+      "slide1_alt": "日本の施設で品質管理を行うタイ人エンジニア",
+      "slide2_title": "建設安全",
+      "slide2_alt": "安全装備を着用した日本の建設労働者",
+      "slide3_title": "製造の卓越性",
+      "slide3_alt": "日本の製造施設で働くタイ人労働者",
+      "slide4_title": "技術研修",
+      "slide4_alt": "技術スキル開発と研修プログラム"
+    },
+    "stats": {
+      "workers_label": "派遣されたタイ人労働者",
+      "companies_label": "日本企業",
+      "years_label": "年の経験",
+      "countries_label": "サービス提供国"
+    }
+  },
+  "projects": {
+    "title": "プロジェクトポートフォリオ",
+    "subtitle": "世界中で完了および進行中のプロジェクトを通じて当社の専門知識を紹介",
+    "all": "すべてのプロジェクト",
+    "infrastructure": "インフラ",
+    "manufacturing": "製造",
+    "discuss_cta": "プロジェクトについて相談する",
+    "more_projects": "これらは世界中で完了した500以上のプロジェクトのほんの一例です。",
+    "list": [
+      {
+        "id": 1,
+        "name": "東京スカイツリー建設",
+        "location": "東京、日本",
+        "year": "2016",
+        "category": "infrastructure",
+        "description": "タイ人エンジニアの専門知識を活用した大規模タワー建設プロジェクト",
+        "personnel": "200+",
+        "image": "https://images.unsplash.com/photo-1694175008614-0a336198fa98?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "id": 2,
+        "name": "大阪製造プラント",
+        "location": "大阪、日本",
+        "year": "2018",
+        "category": "manufacturing",
+        "description": "先進製造施設の建設",
+        "personnel": "150+",
+        "image": "https://plus.unsplash.com/premium_photo-1742418151224-85deebc22419?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "id": 3,
+        "name": "横浜港ターミナル",
+        "location": "横浜、日本",
+        "year": "2017",
+        "category": "infrastructure",
+        "description": "モダンな港湾ターミナルの建設と試運転",
+        "personnel": "300+",
+        "image": "https://images.unsplash.com/photo-1696381222228-81208ce4564e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "id": 4,
+        "name": "名古屋自動車プラント",
+        "location": "名古屋、日本",
+        "year": "2019",
+        "category": "manufacturing",
+        "description": "大規模自動車製造施設の開発",
+        "personnel": "500+",
+        "image": "https://plus.unsplash.com/premium_photo-1742418312039-e3979172d585?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "id": 5,
+        "name": "札幌橋梁プロジェクト",
+        "location": "札幌、日本",
+        "year": "2020",
+        "category": "infrastructure",
+        "description": "主要橋梁インフラ開発",
+        "personnel": "250+",
+        "image": "https://images.unsplash.com/photo-1669576092983-88cb817b37f6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "id": 6,
+        "name": "福岡発電所",
+        "location": "福岡、日本",
+        "year": "2018",
+        "category": "infrastructure",
+        "description": "モダンな発電所建設",
+        "personnel": "400+",
+        "image": "https://images.unsplash.com/photo-1708518370757-38e07a989946?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      }
+    ]
+  },
+  "common": {
+    "personnel": "人材"
+  }
+}

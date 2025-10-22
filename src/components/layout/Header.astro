@@ -1,0 +1,326 @@
+---
+// Enhanced header with dark mode support and better UX
+import Logo from '@/components/common/Logo.astro';
+import ThemeToggle from '@/components/common/ThemeToggle.astro';
+import { getLangFromUrl, t } from '@/i18n/utils';
+import { ROUTES } from '@/utils/constants';
+
+// Component props interface
+interface Props {
+  class?: string;
+}
+
+// Destructure props
+const { class: className = '' } = Astro.props;
+
+// Get current language from URL
+const lang = getLangFromUrl(Astro.url);
+
+// Navigation items
+const navItems = [
+  { key: 'home', href: `/${lang}` },
+  { key: 'about', href: `/${lang}/about` },
+  { key: 'services', href: `/${lang}/services` },
+  { key: 'projects', href: `/${lang}/projects` },
+  { key: 'contact', href: `/${lang}/contact` },
+];
+
+// Language options
+const languages = [
+  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'ja', name: '日本語', flag: '🇯🇵' },
+  { code: 'th', name: 'ไทย', flag: '🇹🇭' },
+];
+---
+
+<header class={`bg-white/95 dark:bg-gray-900/95 shadow-lg border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-50 backdrop-blur-xl ${className}`}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <a href={`/${lang}`} class="flex items-center" aria-label="VINC Placement Home">
+          <Logo variant="full" size="md" />
+        </a>
+      </div>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex space-x-1" aria-label="Main navigation">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-gray-700 dark:text-gray-300 hover:text-white hover:bg-primary-600 dark:hover:text-white dark:hover:bg-primary-500 px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-300 relative group"
+          >
+            {t(lang, `nav.${item.key}`)}
+            
+            <!-- Hover effect -->
+            <span class="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></span>
+          </a>
+        ))}
+      </nav>
+
+      <!-- Theme Toggle, Language Switcher & Mobile Menu Button -->
+      <div class="flex items-center space-x-4">
+        
+        <!-- Theme Toggle -->
+        <ThemeToggle />
+        
+        <!-- Language Switcher -->
+        <div class="relative group">
+          <button
+            id="language-switcher"
+            class="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800"
+            aria-label="Select language"
+            aria-expanded="false"
+          >
+            <span class="text-lg">
+              {languages.find(l => l.code === lang)?.flag || '🌐'}
+            </span>
+            <span class="hidden sm:inline">
+              {languages.find(l => l.code === lang)?.name || 'Language'}
+            </span>
+            <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <!-- Language Dropdown -->
+          <div
+            id="language-dropdown"
+            class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible transition-all duration-200 transform translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0"
+          >
+            <div class="py-1">
+              {languages.map((language) => (
+                <a
+                  href={`/${language.code}`}
+                  class={`flex items-center px-4 py-2 text-sm transition-colors duration-200 ${
+                    language.code === lang 
+                      ? 'bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 font-medium' 
+                      : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-primary-600 dark:hover:text-primary-400'
+                  }`}
+                >
+                  <span class="mr-3 text-lg">{language.flag}</span>
+                  <span>{language.name}</span>
+                  {language.code === lang && (
+                    <svg class="ml-auto w-4 h-4 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  )}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button
+          id="mobile-menu-button"
+          class="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
+          aria-label="Toggle mobile menu"
+          aria-expanded="false"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div
+      id="mobile-menu"
+      class="md:hidden border-t border-gray-200/50 dark:border-gray-700/50 bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl opacity-0 invisible max-h-0 overflow-hidden transition-all duration-500 ease-in-out transform -translate-y-2"
+    >
+      <div class="px-6 pt-6 pb-8 space-y-1">
+        <!-- Navigation Items -->
+        <div class="space-y-2">
+          {navItems.map((item, index) => (
+            <a
+              href={item.href}
+              class="group flex items-center px-4 py-4 text-base font-semibold text-gray-700 dark:text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 dark:hover:from-blue-500 dark:hover:to-purple-500 rounded-xl transition-all duration-300 shadow-sm hover:shadow-lg transform hover:scale-[1.02]"
+              style={`animation-delay: ${index * 50}ms`}
+            >
+              <span class="flex-1">{t(lang, `nav.${item.key}`)}</span>
+              <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
+          ))}
+        </div>
+        
+        <!-- Divider -->
+        <div class="my-6">
+          <div class="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
+        </div>
+        
+        <!-- Mobile Language Options -->
+        <div class="space-y-3">
+          <div class="px-4 py-2 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            {t('language.select', lang)}
+          </div>
+          <div class="space-y-1">
+            {languages.map((language, index) => (
+              <a
+                href={`/${language.code}`}
+                class={`group flex items-center px-4 py-3 text-base transition-all duration-300 rounded-xl ${
+                  language.code === lang 
+                    ? 'bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 text-blue-700 dark:text-blue-300 font-semibold shadow-sm' 
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-blue-600 dark:hover:text-blue-400'
+                }`}
+                style={`animation-delay: ${(index + navItems.length) * 50}ms`}
+              >
+                <span class="mr-4 text-xl">{language.flag}</span>
+                <span class="flex-1">{language.name}</span>
+                {language.code === lang && (
+                  <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                )}
+                {language.code !== lang && (
+                  <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                )}
+              </a>
+            ))}
+          </div>
+        </div>
+        
+        <!-- Contact CTA -->
+        <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
+          <a
+            href={`/${lang}/contact`}
+            class="block w-full px-6 py-4 text-center text-base font-bold text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+          >
+            {t(lang, 'nav.contact')}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile menu toggle script -->
+<script>
+  // Mobile menu functionality
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+      
+      // Toggle aria-expanded
+      mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
+      
+      // Toggle menu visibility with enhanced animations
+      if (isExpanded) {
+        // Close menu
+        mobileMenu.classList.add('opacity-0', 'invisible', 'max-h-0', '-translate-y-2');
+        mobileMenu.classList.remove('opacity-100', 'visible', 'max-h-screen', 'translate-y-0');
+        
+        // Reset button icon
+        const icon = mobileMenuButton.querySelector('svg');
+        if (icon) {
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
+        }
+      } else {
+        // Open menu
+        mobileMenu.classList.remove('opacity-0', 'invisible', 'max-h-0', '-translate-y-2');
+        mobileMenu.classList.add('opacity-100', 'visible', 'max-h-screen', 'translate-y-0');
+        
+        // Update button icon to close
+        const icon = mobileMenuButton.querySelector('svg');
+        if (icon) {
+          icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+        }
+        
+        // Add staggered animation to menu items
+        const menuItems = mobileMenu.querySelectorAll('a');
+        menuItems.forEach((item, index) => {
+          item.style.animationDelay = `${index * 50}ms`;
+          item.classList.add('animate-fade-in-up');
+        });
+      }
+    });
+  }
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (event) => {
+    if (mobileMenu && mobileMenuButton) {
+      const isClickInsideMenu = mobileMenu.contains(event.target as Node);
+      const isClickOnButton = mobileMenuButton.contains(event.target as Node);
+      
+      if (!isClickInsideMenu && !isClickOnButton && mobileMenu.classList.contains('opacity-100')) {
+        mobileMenuButton.click();
+      }
+    }
+  });
+
+  // Close mobile menu on escape key
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('opacity-100')) {
+      mobileMenuButton?.click();
+    }
+  });
+
+  // Close mobile menu when clicking on menu items
+  if (mobileMenu) {
+    const menuLinks = mobileMenu.querySelectorAll('a');
+    menuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu.classList.contains('opacity-100')) {
+          mobileMenuButton?.click();
+        }
+      });
+    });
+  }
+
+  // Language preference saving
+  const languageLinks = document.querySelectorAll('a[href*="/en/"], a[href*="/ja/"], a[href*="/th/"]');
+  languageLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = e.currentTarget.getAttribute('href');
+      if (href) {
+        const langCode = href.split('/')[1];
+        if (['en', 'ja', 'th'].includes(langCode)) {
+          localStorage.setItem('preferred-language', langCode);
+        }
+      }
+    });
+  });
+</script>
+
+<!-- Custom CSS for animations -->
+<style>
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 0.3s ease-out forwards;
+  }
+  
+  /* Smooth transitions for mobile menu */
+  #mobile-menu {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Enhanced hover effects */
+  #mobile-menu a {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Backdrop blur enhancement */
+  #mobile-menu {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+</style>

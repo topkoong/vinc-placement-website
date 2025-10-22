@@ -1,0 +1,34 @@
+---
+// About page for Japanese
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/layout/Header.astro';
+import Footer from '@/components/layout/Footer.astro';
+import About from '@/components/sections/About.astro';
+import { getLangFromUrl, t } from '@/i18n/utils';
+import { generateSEOMeta } from '@/utils/seo';
+
+// Get current language from URL
+const lang = getLangFromUrl(Astro.url);
+
+// Generate SEO metadata
+const seo = generateSEOMeta({
+  title: t(lang, 'about.title'),
+  description: t(lang, 'about.subtitle'),
+  keywords: ['about', 'company', 'history', 'team', 'mission'],
+  canonical: `/ja/about`,
+  alternates: [
+    { lang: 'en', href: '/en/about' },
+    { lang: 'th', href: '/th/about' },
+  ],
+});
+---
+
+<BaseLayout seo={seo}>
+  <Header slot='header' />
+
+  <main>
+    <About lang={lang} />
+  </main>
+
+  <Footer slot='footer' />
+</BaseLayout>

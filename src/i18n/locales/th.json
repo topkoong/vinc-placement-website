@@ -1,0 +1,112 @@
+{
+  "meta": {
+    "title": "วินซ์เพลสเม้นท์ | ผู้นำด้านการส่งแรงงานไทยไปญี่ปุ่น",
+    "description": "ตั้งแต่ปี 1988 วินซ์เพลสเม้นท์เป็นพันธมิตรที่ไว้วางใจของไทยในการส่งแรงงานไทยที่มีทักษะไปญี่ปุ่น",
+    "keywords": "แรงงานไทยญี่ปุ่น, การส่งแรงงานไทยญี่ปุ่น"
+  },
+  "nav": {
+    "home": "หน้าแรก",
+    "about": "เกี่ยวกับเรา",
+    "services": "บริการ",
+    "projects": "ผลงานโครงการ",
+    "contact": "ติดต่อเรา"
+  },
+  "hero": {
+    "title": "บริษัทจัดหางานไปญี่ปุ่นชั้นนำของไทย",
+    "subtitle": "เชื่อมโยงแรงงานไทยที่มีทักษะกับโอกาสการทำงานในญี่ปุ่น - ตั้งแต่งานโรงงานไปจนถึงวิศวกรรมมืออาชีพ",
+    "cta": "เริ่มต้นอาชีพในญี่ปุ่น",
+    "learn_more": "ดูงานว่างในญี่ปุ่น",
+    "badge": "โซลูชั่นกำลังคนชั้นนำ",
+    "scroll_text": "เลื่อนเพื่อสำรวจ",
+    "carousel": {
+      "slide1_title": "ความเป็นเลิศด้านควบคุมคุณภาพ",
+      "slide1_alt": "วิศวกรไทยทำการควบคุมคุณภาพในโรงงานญี่ปุ่น",
+      "slide2_title": "ความปลอดภัยในการก่อสร้าง",
+      "slide2_alt": "คนงานก่อสร้างในญี่ปุ่นพร้อมอุปกรณ์ความปลอดภัย",
+      "slide3_title": "ความเป็นเลิศในการผลิต",
+      "slide3_alt": "แรงงานไทยในโรงงานญี่ปุ่น",
+      "slide4_title": "การฝึกอบรมเทคนิค",
+      "slide4_alt": "โปรแกรมการพัฒนาทักษะทางเทคนิคและการฝึกอบรม"
+    },
+    "stats": {
+      "workers_label": "แรงงานไทย",
+      "companies_label": "บริษัท",
+      "years_label": "ปี",
+      "countries_label": "ประเทศ"
+    }
+  },
+  "projects": {
+    "title": "พอร์ตโฟลิโอโครงการ",
+    "subtitle": "แสดงความเชี่ยวชาญของเราผ่านโครงการที่เสร็จสมบูรณ์และกำลังดำเนินการทั่วโลก",
+    "all": "โครงการทั้งหมด",
+    "infrastructure": "โครงสร้างพื้นฐาน",
+    "manufacturing": "การผลิต",
+    "discuss_cta": "ปรึกษาโครงการของคุณ",
+    "more_projects": "นี่เป็นเพียงตัวอย่างบางส่วนของโครงการที่เสร็จสมบูรณ์กว่า 500 โครงการทั่วโลก",
+    "list": [
+      {
+        "id": 1,
+        "name": "โครงการก่อสร้างโตเกียวสกายทรี",
+        "location": "โตเกียว, ญี่ปุ่น",
+        "year": "2016",
+        "category": "infrastructure",
+        "description": "โครงการก่อสร้างหอคอยขนาดใหญ่ด้วยความเชี่ยวชาญของวิศวกรไทย",
+        "personnel": "200+",
+        "image": "https://images.unsplash.com/photo-1694175008614-0a336198fa98?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "id": 2,
+        "name": "โรงงานผลิตโอซาก้า",
+        "location": "โอซาก้า, ญี่ปุ่น",
+        "year": "2018",
+        "category": "manufacturing",
+        "description": "การก่อสร้างโรงงานผลิตขั้นสูง",
+        "personnel": "150+",
+        "image": "https://plus.unsplash.com/premium_photo-1742418151224-85deebc22419?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "id": 3,
+        "name": "ท่าเรือโยโกฮามา",
+        "location": "โยโกฮามา, ญี่ปุ่น",
+        "year": "2017",
+        "category": "infrastructure",
+        "description": "การก่อสร้างและทดสอบท่าเรือสมัยใหม่",
+        "personnel": "300+",
+        "image": "https://images.unsplash.com/photo-1696381222228-81208ce4564e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "id": 4,
+        "name": "โรงงานผลิตรถยนต์นาโกย่า",
+        "location": "นาโกย่า, ญี่ปุ่น",
+        "year": "2019",
+        "category": "manufacturing",
+        "description": "การพัฒนาโรงงานผลิตรถยนต์ขนาดใหญ่",
+        "personnel": "500+",
+        "image": "https://plus.unsplash.com/premium_photo-1742418312039-e3979172d585?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "id": 5,
+        "name": "โครงการสะพานซัปโปโร",
+        "location": "ซัปโปโร, ญี่ปุ่น",
+        "year": "2020",
+        "category": "infrastructure",
+        "description": "การพัฒนาโครงสร้างพื้นฐานสะพานหลัก",
+        "personnel": "250+",
+        "image": "https://images.unsplash.com/photo-1669576092983-88cb817b37f6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      },
+      {
+        "id": 6,
+        "name": "โรงไฟฟ้าฟุกุโอกะ",
+        "location": "ฟุกุโอกะ, ญี่ปุ่น",
+        "year": "2018",
+        "category": "infrastructure",
+        "description": "การก่อสร้างโรงไฟฟ้าสมัยใหม่",
+        "personnel": "400+",
+        "image": "https://images.unsplash.com/photo-1708518370757-38e07a989946?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      }
+    ]
+  },
+  "common": {
+    "personnel": "บุคลากร"
+  }
+}
