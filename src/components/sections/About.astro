@@ -130,7 +130,7 @@ const { lang } = Astro.props;
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {(t(lang, 'about.expertise_areas') as string[]).map((area: string, index: number) => (
+        {(t(lang, 'about.expertise_areas') as string[] || []).map((area: string, index: number) => (
           <div class="group relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/20 dark:border-gray-700/50">
             <!-- Gradient Overlay -->
             <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -165,7 +165,7 @@ const { lang } = Astro.props;
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {(t(lang, 'about.why_choose_items') as any[]).map((item: any, index: number) => (
+          {(t(lang, 'about.why_choose_items') as any[] || []).map((item: any, index: number) => (
             <div class="group relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
               <!-- Gradient Overlay -->
               <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-purple-500/5 to-pink-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>

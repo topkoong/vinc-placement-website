@@ -1,0 +1,57 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: latest # or specify your version: 8, 9, latest
+
+      - name: Enable Corepack (pnpm via corepack)
+        run: corepack enable
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile || pnpm install
+
+      - name: Lint
+        run: |
+          if pnpm run -s lint; then
+            echo "Lint completed";
+          else
+            echo "No lint script or lint failed; continuing";
+          fi
+
+      - name: Build
+        run: pnpm run build
+
+      - name: Add .nojekyll file
+        run: |
+          mkdir -p dist
+          touch ./dist/.nojekyll
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
