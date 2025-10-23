@@ -30,7 +30,7 @@ const categories = [
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
     <section class="text-center max-w-3xl mx-auto mb-12">
-      <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4 leading-[1.5]">
+      <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4 projects-heading">
         {t(lang, 'projects.title')}
       </h2>
       <p class="text-xl text-gray-600 dark:text-gray-300">
@@ -167,3 +167,13 @@ const categories = [
     });
   });
 </script>
+
+<style>
+  /* 
+    Projects section heading line-height fix
+    Ensures proper spacing for large headings to prevent text cutoff
+  */
+  .projects-heading {
+    line-height: 1.5;
+  }
+</style>

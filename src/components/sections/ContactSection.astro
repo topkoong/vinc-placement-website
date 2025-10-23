@@ -15,7 +15,7 @@ const { lang } = Astro.props;
     <!-- Section Header -->
     <section class='text-center max-w-3xl mx-auto mb-16'>
       <h2
-        class='text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-[1.5]'
+        class='text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 contact-heading'
       >
         {t(lang, 'contact.title')}
       </h2>
@@ -291,3 +291,13 @@ const { lang } = Astro.props;
     });
   }
 </script>
+
+<style>
+  /* 
+    Contact section heading line-height fix
+    Ensures proper spacing for large headings to prevent text cutoff
+  */
+  .contact-heading {
+    line-height: 1.5;
+  }
+</style>

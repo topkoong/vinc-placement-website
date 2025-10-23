@@ -211,7 +211,7 @@ const stats = [
           Responsive typography that scales with screen size
         -->
         <h1
-          class='text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-[1.5] tracking-tight'
+          class='text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight hero-heading'
         >
           <span
             class='block bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 dark:from-white dark:via-blue-100 dark:to-indigo-100 bg-clip-text text-transparent'
@@ -806,6 +806,14 @@ const stats = [
   Provides additional visual effects and performance optimizations
 -->
 <style>
+  /* 
+    Hero heading line-height fix
+    Ensures proper spacing for large headings to prevent text cutoff
+  */
+  .hero-heading {
+    line-height: 1.5;
+  }
+
   /* 
     Background clip text utility
     Enables gradient text effects
