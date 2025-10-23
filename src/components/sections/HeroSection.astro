@@ -1,15 +1,40 @@
 ---
+/**
+ * HeroSection.astro - Main hero section component
+ * 
+ * This component provides the primary landing section including:
+ * - Compelling headline and value proposition
+ * - Call-to-action buttons with proper semantic structure
+ * - Company statistics with semantic figures
+ * - Interactive image slideshow with accessibility features
+ * - Responsive design with mobile-first approach
+ * - Semantic HTML5 structure for better SEO and accessibility
+ * 
+ * @fileoverview Production-grade hero section with comprehensive accessibility
+ * @author VINC Placement Development Team
+ * @version 1.0.0
+ */
+
 // Modern Hero section with stunning visuals and animations
 import { t } from '@/i18n/utils';
 import type { Language } from '@/types';
 
+/**
+ * Component props interface
+ * @interface Props
+ * @property {Language} lang - Current language for internationalization
+ */
 interface Props {
   lang: Language;
 }
 
 const { lang } = Astro.props;
 
-// Hero images for slideshow - using translations for all text
+// 
+// Hero images for slideshow
+// Using translations for all text content
+// Each image includes proper alt text and title for accessibility
+// 
 const heroImages = [
   {
     src: 'https://plus.unsplash.com/premium_photo-1661962308717-aa967f951c56?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
@@ -33,7 +58,11 @@ const heroImages = [
   },
 ];
 
-// Stats data - using translations
+// 
+// Company statistics data
+// Using translations for all text content
+// Each statistic includes proper semantic structure
+// 
 const stats = [
   { value: '10,000+', labelKey: 'hero.stats.workers_label' },
   { value: '500+', labelKey: 'hero.stats.companies_label' },
@@ -42,13 +71,39 @@ const stats = [
 ];
 ---
 
+<!-- 
+  ============================================
+  HERO SECTION - SEMANTIC HTML5 STRUCTURE
+  ============================================
+-->
+
+<!-- 
+  Main hero section
+  Uses semantic <section> element for better accessibility and SEO
+  Contains the primary landing content with compelling visuals
+-->
 <section
   class='relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900 overflow-hidden'
   id='hero'
+  aria-label='Hero section'
 >
-  <!-- Modern Background Elements -->
+  <!-- 
+    ============================================
+    BACKGROUND DECORATIVE ELEMENTS
+    ============================================
+  -->
+  
+  <!-- 
+    Modern background elements
+    Decorative geometric shapes and patterns
+    Hidden from screen readers as they are purely visual
+  -->
   <div class='absolute inset-0 pointer-events-none' aria-hidden='true'>
-    <!-- Geometric Shapes -->
+    <!-- 
+      Geometric shapes for visual interest
+      Floating elements that add depth and movement
+      Uses CSS animations for subtle motion effects
+    -->
     <div
       class='absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-3xl rotate-12 opacity-20 animate-pulse'
     >
@@ -62,7 +117,11 @@ const stats = [
     >
     </div>
 
-    <!-- Subtle Pattern -->
+    <!-- 
+      Subtle pattern overlay
+      Provides texture without overwhelming the content
+      Uses SVG data URI for optimal performance
+    -->
     <div class='absolute inset-0 opacity-5'>
       <div
         class='absolute inset-0'
@@ -72,18 +131,59 @@ const stats = [
     </div>
   </div>
 
+  <!-- 
+    ============================================
+    MAIN HERO CONTENT SECTION
+    ============================================
+  -->
+  
+  <!-- 
+    Hero content container
+    Uses responsive container with proper padding
+    Centers content and provides consistent spacing
+  -->
   <div
     class='relative container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen py-12 md:py-20 lg:py-24 flex items-center'
   >
+    <!-- 
+      Hero content grid
+      Responsive grid layout that stacks on mobile and side-by-side on desktop
+      Contains main content and visual elements
+    -->
     <main
       class='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full'
     >
-      <!-- Left Column - Content -->
+      <!-- 
+        ============================================
+        HERO CONTENT COLUMN
+        ============================================
+      -->
+      
+      <!-- 
+        Left column - Main content
+        Contains headline, description, CTAs, and statistics
+        Uses semantic structure for better accessibility
+      -->
       <section class='text-center lg:text-left space-y-6 md:space-y-8'>
-        <!-- Badge -->
+        <!-- 
+          ============================================
+          HERO BADGE SECTION
+          ============================================
+        -->
+        
+        <!-- 
+          Trust badge
+          Visual indicator of company credibility
+          Uses semantic structure with proper icon and text
+        -->
         <div
           class='inline-flex items-center px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-sm font-medium'
         >
+          <!-- 
+            Lightning bolt icon
+            Visual indicator for trust and speed
+            Hidden from screen readers as decorative
+          -->
           <svg
             class='w-4 h-4 mr-2'
             fill='currentColor'
@@ -98,7 +198,18 @@ const stats = [
           {t(lang, 'hero.badge')}
         </div>
 
-        <!-- Main Heading - Responsive sizes -->
+        <!-- 
+          ============================================
+          HERO HEADLINE SECTION
+          ============================================
+        -->
+        
+        <!-- 
+          Main heading
+          Primary value proposition and headline
+          Uses semantic <h1> element for proper heading hierarchy
+          Responsive typography that scales with screen size
+        -->
         <h1
           class='text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold leading-tight tracking-tight'
         >
@@ -109,29 +220,69 @@ const stats = [
           </span>
         </h1>
 
-        <!-- Subtitle -->
+        <!-- 
+          ============================================
+          HERO SUBTITLE SECTION
+          ============================================
+        -->
+        
+        <!-- 
+          Subtitle/description
+          Supporting text that explains the value proposition
+          Uses semantic <p> element for proper text structure
+          Responsive typography with proper line height
+        -->
         <p
           class='text-base md:text-lg lg:text-xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0'
         >
           {t(lang, 'hero.subtitle')}
         </p>
 
-        <!-- CTA Buttons -->
+        <!-- 
+          ============================================
+          CALL-TO-ACTION SECTION
+          ============================================
+        -->
+        
+        <!-- 
+          CTA buttons navigation
+          Primary and secondary action buttons
+          Uses semantic <nav> element with proper ARIA labeling
+        -->
         <nav
           class='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'
           aria-label='Main actions'
         >
-          <!-- Primary CTA Button -->
+          <!-- 
+            Primary CTA Button
+            Main action button with gradient styling
+            Includes hover effects and accessibility features
+          -->
           <a
             href={`/${lang}/contact`}
             class='group relative inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-semibold text-sm md:text-base rounded-xl hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 overflow-hidden'
+            aria-label='Contact VINC Placement'
           >
+            <!-- 
+              Hover effect overlay
+              Provides visual feedback on hover
+              Hidden from screen readers as decorative
+            -->
             <div
               class='absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'
               aria-hidden='true'
             >
             </div>
+            <!-- 
+              Button text
+              Main content of the button
+            -->
             <span class='relative z-10'>{t(lang, 'hero.cta')}</span>
+            <!-- 
+              Arrow icon
+              Visual indicator for action
+              Hidden from screen readers as decorative
+            -->
             <svg
               class='w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200 relative z-10'
               fill='none'
@@ -147,17 +298,36 @@ const stats = [
             </svg>
           </a>
 
-          <!-- Secondary CTA Button -->
+          <!-- 
+            Secondary CTA Button
+            Alternative action button with outline styling
+            Includes hover effects and accessibility features
+          -->
           <a
             href={`/${lang}/services`}
             class='group relative inline-flex items-center justify-center px-6 md:px-8 py-3 md:py-4 border-2 border-blue-600 text-blue-600 dark:text-blue-400 dark:border-blue-400 font-semibold text-sm md:text-base rounded-xl hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 backdrop-blur-sm bg-white/80 dark:bg-gray-800/80'
+            aria-label='Learn more about our services'
           >
+            <!-- 
+              Hover effect overlay
+              Provides visual feedback on hover
+              Hidden from screen readers as decorative
+            -->
             <div
               class='absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl'
               aria-hidden='true'
             >
             </div>
+            <!-- 
+              Button text
+              Main content of the button
+            -->
             <span class='relative z-10'>{t(lang, 'hero.learn_more')}</span>
+            <!-- 
+              Arrow icon
+              Visual indicator for action
+              Hidden from screen readers as decorative
+            -->
             <svg
               class='w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200 relative z-10'
               fill='none'
@@ -174,15 +344,40 @@ const stats = [
           </a>
         </nav>
 
-        <!-- Stats -->
+        <!-- 
+          ============================================
+          COMPANY STATISTICS SECTION
+          ============================================
+        -->
+        
+        <!-- 
+          Statistics section
+          Company achievements and metrics
+          Uses semantic <section> element with proper ARIA labeling
+        -->
         <section class='w-full' aria-label='Company statistics'>
+          <!-- 
+            Statistics grid
+            Responsive grid layout for statistics display
+            Each statistic uses semantic <figure> element
+          -->
           <div class='grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto'>
             {
               stats.map((stat, index) => (
-                <figure class='bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-sm border border-gray-100 dark:border-gray-700'>
+                <figure class='bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-sm border border-gray-100 dark:border-gray-700' key={index}>
+                  <!-- 
+                    Statistic value
+                    Large number display for visual impact
+                    Uses semantic structure for proper meaning
+                  -->
                   <div class='text-lg font-bold text-blue-600 dark:text-blue-400 mb-1'>
                     {stat.value}
                   </div>
+                  <!-- 
+                    Statistic label
+                    Descriptive text explaining the statistic
+                    Uses semantic <figcaption> element
+                  -->
                   <figcaption class='text-xs text-gray-600 dark:text-gray-400'>
                     {t(lang, stat.labelKey)}
                   </figcaption>
@@ -193,27 +388,66 @@ const stats = [
         </section>
       </section>
 
-      <!-- Right Column - Image Slideshow -->
+      <!-- 
+        ============================================
+        HERO IMAGE SLIDESHOW COLUMN
+        ============================================
+      -->
+      
+      <!-- 
+        Right column - Image slideshow
+        Visual element showcasing company work and environment
+        Uses semantic <aside> element for complementary content
+        Order changes on mobile for better content hierarchy
+      -->
       <aside class='relative order-first lg:order-last'>
+        <!-- 
+          Main slideshow figure
+          Contains the image carousel with proper semantic structure
+          Uses semantic <figure> element for image content
+        -->
         <figure
           class='relative w-full h-80 md:h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl'
         >
+          <!-- 
+            Slideshow container
+            Contains all slides with proper positioning
+            Uses relative positioning for slide management
+          -->
           <div id='hero-slideshow' class='relative w-full h-full'>
             {
               heroImages.map((image, index) => (
                 <div
                   class={`absolute inset-0 transition-opacity duration-1000 ${index === 0 ? 'opacity-100' : 'opacity-0'}`}
                   data-slide={index}
+                  key={index}
                 >
+                  <!-- 
+                    Hero image
+                    High-quality image with proper alt text
+                    Uses object-cover for consistent aspect ratio
+                  -->
                   <img
                     src={image.src}
                     alt={t(lang, image.altKey)}
                     class='w-full h-full object-cover'
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    fetchpriority={index === 0 ? 'high' : 'low'}
                   />
+                  <!-- 
+                    Image overlay
+                    Dark gradient overlay for better text readability
+                    Hidden from screen readers as decorative
+                  -->
                   <div
                     class='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent'
                     aria-hidden='true'
                   />
+                  <!-- 
+                    Image caption
+                    Descriptive text for each slide
+                    Uses semantic <figcaption> element
+                  -->
                   <figcaption class='absolute bottom-4 md:bottom-6 left-4 md:left-6 text-white'>
                     <h3 class='text-lg md:text-xl font-bold mb-1 md:mb-2'>
                       {t(lang, image.titleKey)}
@@ -227,6 +461,17 @@ const stats = [
             }
           </div>
 
+          <!-- 
+            ============================================
+            SLIDESHOW CONTROLS SECTION
+            ============================================
+          -->
+          
+          <!-- 
+            Slide indicators
+            Dot navigation for slideshow control
+            Uses proper ARIA attributes for accessibility
+          -->
           <div
             class='absolute bottom-3 md:bottom-4 right-3 md:right-4 flex space-x-2'
             role='tablist'
@@ -240,16 +485,29 @@ const stats = [
                   aria-label={`Go to slide ${index + 1}`}
                   role='tab'
                   aria-selected={index === 0}
+                  type='button'
+                  key={index}
                 />
               ))
             }
           </div>
 
+          <!-- 
+            Previous slide button
+            Navigation button for previous slide
+            Includes proper ARIA labels and accessibility features
+          -->
           <button
             id='prev-slide'
             class='absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300'
             aria-label='Previous slide'
+            type='button'
           >
+            <!-- 
+              Previous arrow icon
+              Visual indicator for previous navigation
+              Hidden from screen readers as aria-label provides this information
+            -->
             <svg
               class='w-5 h-5 md:w-6 md:h-6'
               fill='none'
@@ -265,11 +523,22 @@ const stats = [
             </svg>
           </button>
 
+          <!-- 
+            Next slide button
+            Navigation button for next slide
+            Includes proper ARIA labels and accessibility features
+          -->
           <button
             id='next-slide'
             class='absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-all duration-300'
             aria-label='Next slide'
+            type='button'
           >
+            <!-- 
+              Next arrow icon
+              Visual indicator for next navigation
+              Hidden from screen readers as aria-label provides this information
+            -->
             <svg
               class='w-5 h-5 md:w-6 md:h-6'
               fill='none'
@@ -286,6 +555,17 @@ const stats = [
           </button>
         </figure>
 
+        <!-- 
+          ============================================
+          DECORATIVE ELEMENTS SECTION
+          ============================================
+        -->
+        
+        <!-- 
+          Floating decorative elements
+          Additional visual elements for design enhancement
+          Hidden from screen readers as purely decorative
+        -->
         <div
           class='absolute -top-6 -right-6 w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl rotate-12 opacity-80 animate-pulse hidden md:block'
           aria-hidden='true'
@@ -300,19 +580,46 @@ const stats = [
     </main>
   </div>
 
+  <!-- 
+    ============================================
+    SCROLL INDICATOR SECTION
+    ============================================
+  -->
+  
+  <!-- 
+    Scroll indicator
+    Visual cue encouraging users to scroll down
+    Hidden on mobile devices to save space
+    Uses proper ARIA labeling for accessibility
+  -->
   <div
     id='scroll-indicator'
     class='absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 hidden md:flex'
     aria-label='Scroll to explore more content'
   >
     <div class='flex flex-col items-center'>
+      <!-- 
+        Scroll indicator container
+        Styled container with backdrop blur effect
+        Contains scroll text and animated indicator
+      -->
       <div
         class='bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-4 py-2 shadow-lg border border-gray-200/60 dark:border-gray-700/60'
       >
+        <!-- 
+          Scroll instruction text
+          Text encouraging users to scroll
+          Uses semantic structure for proper meaning
+        -->
         <span
           class='text-xs font-medium text-gray-600 dark:text-gray-400 mb-1 block'
           >{t(lang, 'hero.scroll_text')}</span
         >
+        <!-- 
+          Animated scroll indicator
+          Visual element showing scroll direction
+          Uses CSS animation for movement effect
+        -->
         <div
           class='w-4 h-6 border-2 border-gray-300 dark:border-gray-600 rounded-full flex justify-center items-start mx-auto overflow-hidden'
         >
@@ -326,52 +633,119 @@ const stats = [
   </div>
 </section>
 
+<!-- 
+  ============================================
+  JAVASCRIPT FUNCTIONALITY
+  ============================================
+-->
+
+<!-- 
+  Hero slideshow functionality
+  Provides interactive slideshow with accessibility features
+  Includes automatic rotation and manual controls
+-->
 <script>
+  /**
+   * Hero slideshow functionality
+   * Handles image carousel with proper accessibility
+   * Includes automatic rotation and manual navigation
+   */
+  
+  // Wait for DOM to be fully loaded before initializing
   document.addEventListener('DOMContentLoaded', function () {
+    // 
+    // Get references to slideshow elements
+    // Uses defensive programming to check for element existence
+    // 
     const slideshow = document.getElementById('hero-slideshow');
     const slides = slideshow?.querySelectorAll('[data-slide]');
     const dots = document.querySelectorAll('[data-slide-btn]');
     const prevBtn = document.getElementById('prev-slide');
     const nextBtn = document.getElementById('next-slide');
 
+    // 
+    // Early return if required elements don't exist
+    // Prevents errors and ensures graceful degradation
+    // 
     if (!slides || !dots || !prevBtn || !nextBtn) return;
 
+    // 
+    // Slideshow state management
+    // Tracks current slide and total number of slides
+    // 
     let currentSlide = 0;
     const totalSlides = slides.length;
 
+    /**
+     * Show specific slide with smooth transition
+     * Updates visual state and ARIA attributes for accessibility
+     * @param {number} index - Index of slide to show
+     */
     function showSlide(index: number) {
+      // 
+      // Hide all slides
+      // Removes active classes from all slides
+      // 
       slides.forEach((slide) => {
         slide.classList.remove('opacity-100');
         slide.classList.add('opacity-0');
       });
 
+      // 
+      // Show target slide
+      // Adds active classes to target slide
+      // 
       slides[index].classList.remove('opacity-0');
       slides[index].classList.add('opacity-100');
 
+      // 
+      // Update dot indicators
+      // Updates visual state of navigation dots
+      // 
       dots.forEach((dot, i) => {
         if (i === index) {
           dot.classList.remove('bg-white/50');
           dot.classList.add('bg-white');
+          // Update ARIA attributes for accessibility
+          dot.setAttribute('aria-selected', 'true');
         } else {
           dot.classList.remove('bg-white');
           dot.classList.add('bg-white/50');
+          // Update ARIA attributes for accessibility
+          dot.setAttribute('aria-selected', 'false');
         }
       });
     }
 
+    /**
+     * Navigate to next slide
+     * Handles wraparound to first slide after last slide
+     */
     function nextSlide() {
       currentSlide = (currentSlide + 1) % totalSlides;
       showSlide(currentSlide);
     }
 
+    /**
+     * Navigate to previous slide
+     * Handles wraparound to last slide before first slide
+     */
     function prevSlide() {
       currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
       showSlide(currentSlide);
     }
 
+    // 
+    // Event listeners for manual navigation
+    // Provides user control over slideshow
+    // 
     nextBtn.addEventListener('click', nextSlide);
     prevBtn.addEventListener('click', prevSlide);
 
+    // 
+    // Event listeners for dot navigation
+    // Allows direct navigation to specific slides
+    // 
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
         currentSlide = index;
@@ -379,30 +753,74 @@ const stats = [
       });
     });
 
+    // 
+    // Automatic slideshow rotation
+    // Advances slides every 5 seconds for continuous engagement
+    // 
     setInterval(nextSlide, 5000);
 
+    // 
+    // Scroll indicator functionality
+    // Shows/hides scroll indicator based on scroll position
+    // 
     const scrollIndicator = document.getElementById('scroll-indicator');
     if (scrollIndicator) {
+      /**
+       * Handle scroll events
+       * Updates scroll indicator visibility based on scroll position
+       * Uses passive event listener for better performance
+       */
       const onScroll = () => {
         if (window.scrollY > 80) {
+          // Hide indicator when scrolled down
           scrollIndicator.style.opacity = '0';
         } else {
+          // Show indicator when near top
           scrollIndicator.style.opacity = '1';
         }
       };
+      
+      // 
+      // Add scroll event listener
+      // Uses passive option for better performance
+      // 
       window.addEventListener('scroll', onScroll, { passive: true });
+      
+      // 
+      // Initial check for scroll position
+      // Ensures correct initial state
+      // 
       onScroll();
     }
   });
 </script>
 
+<!-- 
+  ============================================
+  CUSTOM CSS STYLES
+  ============================================
+-->
+
+<!-- 
+  Custom CSS for enhanced styling and animations
+  Provides additional visual effects and performance optimizations
+-->
 <style>
+  /* 
+    Background clip text utility
+    Enables gradient text effects
+    Includes webkit prefix for Safari compatibility
+  */
   .bg-clip-text {
     -webkit-background-clip: text;
     background-clip: text;
   }
 
-  /* Hide scrollbar but keep functionality */
+  /* 
+    Hide scrollbar utility
+    Maintains scroll functionality while hiding scrollbar
+    Includes cross-browser compatibility
+  */
   .scrollbar-hide {
     -ms-overflow-style: none;
     scrollbar-width: none;

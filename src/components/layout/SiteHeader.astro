@@ -1,11 +1,31 @@
 ---
+/**
+ * SiteHeader.astro - Main site navigation header component
+ * 
+ * This component provides the primary navigation interface including:
+ * - Company logo and branding
+ * - Main navigation menu with proper ARIA labels
+ * - Language switcher with accessibility features
+ * - Theme toggle functionality
+ * - Mobile-responsive navigation with hamburger menu
+ * - Semantic HTML5 structure for better SEO and accessibility
+ * 
+ * @fileoverview Production-grade header component with comprehensive accessibility
+ * @author VINC Placement Development Team
+ * @version 1.0.0
+ */
+
 // Enhanced header with dark mode support and better UX
 import Logo from '@/components/common/Logo.astro';
 import ThemeToggle from '@/components/common/ThemeToggle.astro';
 import { getLangFromUrl, t } from '@/i18n/utils';
 import { ROUTES } from '@/utils/constants';
 
-// Component props interface
+/**
+ * Component props interface
+ * @interface Props
+ * @property {string} [className] - Optional CSS class for header styling
+ */
 interface Props {
   class?: string;
 }
@@ -13,10 +33,13 @@ interface Props {
 // Destructure props
 const { class: className = '' } = Astro.props;
 
-// Get current language from URL
+// Get current language from URL for internationalization
 const lang = getLangFromUrl(Astro.url);
 
+// 
 // Navigation items with correct base path
+// Each item includes proper href structure for multilingual support
+// 
 const navItems = [
   { key: 'home', href: `/vinc-placement-website/${lang}` },
   { key: 'about', href: `/vinc-placement-website/${lang}/about` },
@@ -25,14 +48,20 @@ const navItems = [
   { key: 'contact', href: `/vinc-placement-website/${lang}/contact` },
 ];
 
-// Language options
+// 
+// Language options for the language switcher
+// Includes flag emojis for visual identification
+// 
 const languages = [
   { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'ja', name: '日本語', flag: '🇯🇵' },
   { code: 'th', name: 'ไทย', flag: '🇹🇭' },
 ];
 
-// Get current path without language prefix for language switching
+// 
+// Path processing for language switching
+// Removes base path and language prefix to maintain current page context
+// 
 const basePath = '/vinc-placement-website';
 const fullPath = Astro.url.pathname;
 
@@ -68,19 +97,70 @@ if (!currentPath.startsWith('/')) {
 }
 ---
 
-<header class={`bg-white/95 dark:bg-gray-900/95 shadow-lg border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-50 backdrop-blur-xl ${className}`}>
+<!-- 
+  ============================================
+  SITE HEADER - SEMANTIC HTML5 STRUCTURE
+  ============================================
+-->
+
+<!-- 
+  Main site header element
+  Uses semantic <header> tag for better accessibility and SEO
+  Contains site-wide navigation and branding elements
+-->
+<header 
+  class={`bg-white/95 dark:bg-gray-900/95 shadow-lg border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0 z-50 backdrop-blur-xl ${className}`}
+  role="banner"
+>
+  <!-- 
+    Header container with responsive padding
+    Uses max-width container for consistent layout across screen sizes
+  -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- 
+      Header content wrapper
+      Flexbox layout for proper alignment of logo, navigation, and controls
+    -->
     <div class="flex justify-between items-center h-16">
       
-      <!-- Logo -->
+      <!-- 
+        ============================================
+        LOGO AND BRANDING SECTION
+        ============================================
+      -->
+      
+      <!-- 
+        Company logo section
+        Uses semantic structure with proper link for home navigation
+        Includes accessibility label for screen readers
+      -->
       <div class="flex-shrink-0">
-        <a href={`/vinc-placement-website/${lang}`} class="flex items-center" aria-label="VINC Placement Home">
+        <a 
+          href={`/vinc-placement-website/${lang}`} 
+          class="flex items-center" 
+          aria-label="VINC Placement Home"
+        >
           <Logo variant="full" size="md" />
         </a>
       </div>
 
-      <!-- Desktop Navigation -->
+      <!-- 
+        ============================================
+        MAIN NAVIGATION SECTION
+        ============================================
+      -->
+      
+      <!-- 
+        Desktop navigation menu
+        Hidden on mobile devices, visible on medium screens and up
+        Uses semantic <nav> element with proper ARIA labeling
+      -->
       <nav class="hidden md:flex space-x-1" aria-label="Main navigation">
+        <!-- 
+          Navigation list
+          Uses semantic <ul> element with proper role attributes
+          Each item has appropriate ARIA roles for accessibility
+        -->
         <ul class="flex space-x-1" role="menubar">
           {navItems.map((item) => (
             <li role="none">
@@ -88,10 +168,15 @@ if (!currentPath.startsWith('/')) {
                 href={item.href}
                 class="text-gray-700 dark:text-gray-300 hover:text-white hover:bg-primary-600 dark:hover:text-white dark:hover:bg-primary-500 px-4 py-2 text-sm font-semibold rounded-lg transition-all duration-300 relative group"
                 role="menuitem"
+                aria-current={Astro.url.pathname === item.href ? 'page' : undefined}
               >
                 {t(lang, `nav.${item.key}`)}
                 
-                <!-- Hover effect -->
+                <!-- 
+                  Hover effect overlay
+                  Provides visual feedback on hover
+                  Hidden from screen readers with aria-hidden
+                -->
                 <span class="absolute inset-0 bg-gradient-to-r from-primary-600 to-primary-700 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" aria-hidden="true"></span>
               </a>
             </li>
@@ -99,39 +184,92 @@ if (!currentPath.startsWith('/')) {
         </ul>
       </nav>
 
-      <!-- Theme Toggle, Language Switcher & Mobile Menu Button -->
+      <!-- 
+        ============================================
+        HEADER CONTROLS SECTION
+        ============================================
+      -->
+      
+      <!-- 
+        Header controls container
+        Contains theme toggle, language switcher, and mobile menu button
+        Uses flexbox for proper alignment
+      -->
       <div class="flex items-center space-x-4">
         
-        <!-- Theme Toggle -->
+        <!-- 
+          Theme toggle component
+          Allows users to switch between light and dark modes
+        -->
         <ThemeToggle />
         
-        <!-- Language Switcher -->
+        <!-- 
+          ============================================
+          LANGUAGE SWITCHER SECTION
+          ============================================
+        -->
+        
+        <!-- 
+          Language switcher dropdown
+          Provides access to different language versions of the site
+          Uses proper ARIA attributes for accessibility
+        -->
         <div class="relative group">
+          <!-- 
+            Language switcher button
+            Triggers the dropdown menu with available languages
+            Includes proper ARIA attributes for screen readers
+          -->
           <button
             id="language-switcher"
             class="flex items-center space-x-2 px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 rounded-md hover:bg-gray-50 dark:hover:bg-gray-800"
             aria-label="Select language"
             aria-expanded="false"
             aria-haspopup="true"
+            type="button"
           >
+            <!-- 
+              Current language flag
+              Visual indicator of currently selected language
+              Hidden from screen readers as it's decorative
+            -->
             <span class="text-lg" aria-hidden="true">
               {languages.find(l => l.code === lang)?.flag || '🌐'}
             </span>
+            <!-- 
+              Current language name
+              Text label for the current language
+              Hidden on small screens to save space
+            -->
             <span class="hidden sm:inline">
               {languages.find(l => l.code === lang)?.name || 'Language'}
             </span>
+            <!-- 
+              Dropdown arrow icon
+              Indicates that this button opens a dropdown menu
+              Rotates on hover for visual feedback
+            -->
             <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
 
-          <!-- Language Dropdown -->
+          <!-- 
+            Language dropdown menu
+            Contains list of available languages
+            Uses proper ARIA attributes and semantic structure
+          -->
           <div
             id="language-dropdown"
             class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible transition-all duration-200 transform translate-y-2 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0"
             role="menu"
             aria-labelledby="language-switcher"
           >
+            <!-- 
+              Language options list
+              Each language option is a proper menu item
+              Current language is highlighted with different styling
+            -->
             <ul class="py-1" role="none">
               {languages.map((language) => (
                 <li role="none">
@@ -145,8 +283,22 @@ if (!currentPath.startsWith('/')) {
                     role="menuitem"
                     aria-current={language.code === lang ? 'page' : undefined}
                   >
+                    <!-- 
+                      Language flag
+                      Visual indicator for each language option
+                      Hidden from screen readers as decorative
+                    -->
                     <span class="mr-3 text-lg" aria-hidden="true">{language.flag}</span>
+                    <!-- 
+                      Language name
+                      Text label for each language option
+                    -->
                     <span>{language.name}</span>
+                    <!-- 
+                      Current language indicator
+                      Checkmark icon for the currently selected language
+                      Hidden from screen readers as aria-current provides this information
+                    -->
                     {language.code === lang && (
                       <svg class="ml-auto w-4 h-4 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
@@ -159,14 +311,32 @@ if (!currentPath.startsWith('/')) {
           </div>
         </div>
 
-        <!-- Mobile Menu Button -->
+        <!-- 
+          ============================================
+          MOBILE MENU SECTION
+          ============================================
+        -->
+        
+        <!-- 
+          Mobile menu button
+          Toggles the mobile navigation menu
+          Only visible on mobile devices (hidden on medium screens and up)
+          Uses proper ARIA attributes for accessibility
+        -->
         <button
           id="mobile-menu-button"
           class="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-200"
           aria-label="Toggle mobile menu"
           aria-expanded="false"
           aria-controls="mobile-menu"
+          type="button"
         >
+          <!-- 
+            Hamburger menu icon
+            Three horizontal lines indicating menu functionality
+            Changes to X icon when menu is open
+            Hidden from screen readers as aria-label provides this information
+          -->
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -174,15 +344,41 @@ if (!currentPath.startsWith('/')) {
       </div>
     </div>
 
-    <!-- Mobile Navigation Menu -->
+    <!-- 
+      ============================================
+      MOBILE NAVIGATION MENU SECTION
+      ============================================
+    -->
+    
+    <!-- 
+      Mobile navigation menu
+      Hidden on desktop, visible on mobile devices
+      Uses semantic <nav> element with proper ARIA attributes
+      Includes smooth animations and transitions
+    -->
     <nav
       id="mobile-menu"
       class="md:hidden border-t border-gray-200/50 dark:border-gray-700/50 bg-white/98 dark:bg-gray-900/98 backdrop-blur-xl opacity-0 invisible max-h-0 overflow-hidden transition-all duration-500 ease-in-out transform -translate-y-2"
       aria-label="Mobile navigation"
       aria-hidden="true"
     >
+      <!-- 
+        Mobile menu content container
+        Contains all mobile navigation elements with proper spacing
+      -->
       <div class="px-6 pt-6 pb-8 space-y-1">
-        <!-- Navigation Items -->
+        
+        <!-- 
+          ============================================
+          MOBILE NAVIGATION ITEMS
+          ============================================
+        -->
+        
+        <!-- 
+          Main navigation items for mobile
+          Uses semantic <ul> element with proper role attributes
+          Each item includes hover effects and animations
+        -->
         <ul class="space-y-2" role="menubar">
           {navItems.map((item, index) => (
             <li role="none">
@@ -191,8 +387,18 @@ if (!currentPath.startsWith('/')) {
                 class="group flex items-center px-4 py-4 text-base font-semibold text-gray-700 dark:text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 dark:hover:from-blue-500 dark:hover:to-purple-500 rounded-xl transition-all duration-300 shadow-sm hover:shadow-lg transform hover:scale-[1.02]"
                 style={`animation-delay: ${index * 50}ms`}
                 role="menuitem"
+                aria-current={Astro.url.pathname === item.href ? 'page' : undefined}
               >
+                <!-- 
+                  Navigation item text
+                  Main content of the navigation link
+                -->
                 <span class="flex-1">{t(lang, `nav.${item.key}`)}</span>
+                <!-- 
+                  Arrow icon for visual feedback
+                  Appears on hover to indicate clickable element
+                  Hidden from screen readers as decorative
+                -->
                 <svg class="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
@@ -201,18 +407,43 @@ if (!currentPath.startsWith('/')) {
           ))}
         </ul>
         
-        <!-- Divider -->
+        <!-- 
+          Visual divider between navigation sections
+          Separates main navigation from language options
+          Hidden from screen readers as decorative
+        -->
         <div class="my-6" aria-hidden="true">
           <div class="h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-600 to-transparent"></div>
         </div>
         
-        <!-- Mobile Language Options -->
+        <!-- 
+          ============================================
+          MOBILE LANGUAGE SELECTION SECTION
+          ============================================
+        -->
+        
+        <!-- 
+          Language selection section for mobile
+          Uses semantic <section> element with proper heading structure
+          Provides easy access to language switching on mobile devices
+        -->
         <section class="space-y-3">
+          <!-- 
+            Section header
+            Uses semantic <header> element with proper heading structure
+            Provides context for the language selection options
+          -->
           <header>
             <div class="px-4 py-2 text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
               {t(lang, 'language.select')}
             </div>
           </header>
+          
+          <!-- 
+            Language options list for mobile
+            Each language option is a proper menu item
+            Current language is highlighted with different styling
+          -->
           <ul class="space-y-1" role="menubar">
             {languages.map((language, index) => (
               <li role="none">
@@ -227,13 +458,33 @@ if (!currentPath.startsWith('/')) {
                   role="menuitem"
                   aria-current={language.code === lang ? 'page' : undefined}
                 >
+                  <!-- 
+                    Language flag
+                    Visual indicator for each language option
+                    Hidden from screen readers as decorative
+                  -->
                   <span class="mr-4 text-xl" aria-hidden="true">{language.flag}</span>
+                  <!-- 
+                    Language name
+                    Text label for each language option
+                  -->
                   <span class="flex-1">{language.name}</span>
+                  <!-- 
+                    Current language indicator
+                    Checkmark icon for the currently selected language
+                    Hidden from screen readers as aria-current provides this information
+                  -->
                   {language.code === lang && (
                     <svg class="w-5 h-5 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
                     </svg>
                   )}
+                  <!-- 
+                    Hover arrow icon
+                    Appears on hover for non-current languages
+                    Indicates clickable element
+                    Hidden from screen readers as decorative
+                  -->
                   {language.code !== lang && (
                     <svg class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
@@ -245,11 +496,22 @@ if (!currentPath.startsWith('/')) {
           </ul>
         </section>
         
-        <!-- Contact CTA -->
+        <!-- 
+          ============================================
+          MOBILE CALL-TO-ACTION SECTION
+          ============================================
+        -->
+        
+        <!-- 
+          Contact call-to-action button
+          Prominent button encouraging users to contact the company
+          Uses gradient styling and hover effects for visual appeal
+        -->
         <div class="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
           <a
             href={`/vinc-placement-website/${lang}/contact`}
             class="block w-full px-6 py-4 text-center text-base font-bold text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+            aria-label="Contact VINC Placement"
           >
             {t(lang, 'nav.contact')}
           </a>
@@ -259,42 +521,75 @@ if (!currentPath.startsWith('/')) {
   </div>
 </header>
 
-<!-- Mobile menu toggle script -->
+<!-- 
+  ============================================
+  JAVASCRIPT FUNCTIONALITY
+  ============================================
+-->
+
+<!-- 
+  Mobile menu toggle script
+  Provides interactive functionality for the mobile navigation menu
+  Includes accessibility features and smooth animations
+-->
 <script>
-  // Mobile menu functionality
+  /**
+   * Mobile menu functionality
+   * Handles opening/closing of mobile navigation menu
+   * Includes proper ARIA attribute management for accessibility
+   */
+  
+  // Get references to mobile menu elements
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');
   
+  // 
+  // Mobile menu toggle functionality
+  // Only proceed if both elements exist (defensive programming)
+  // 
   if (mobileMenuButton && mobileMenu) {
+    // 
+    // Toggle menu on button click
+    // Updates ARIA attributes and visual state
+    // 
     mobileMenuButton.addEventListener('click', () => {
       const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
       
-      // Toggle aria-expanded
+      // Toggle aria-expanded attribute for screen readers
       mobileMenuButton.setAttribute('aria-expanded', (!isExpanded).toString());
       
       // Toggle menu visibility with enhanced animations
       if (isExpanded) {
+        // 
         // Close menu
+        // Adds closing classes and removes opening classes
+        // 
         mobileMenu.classList.add('opacity-0', 'invisible', 'max-h-0', '-translate-y-2');
         mobileMenu.classList.remove('opacity-100', 'visible', 'max-h-screen', 'translate-y-0');
         
-        // Reset button icon
+        // Reset button icon to hamburger menu
         const icon = mobileMenuButton.querySelector('svg');
         if (icon) {
           icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />';
         }
       } else {
+        // 
         // Open menu
+        // Removes closing classes and adds opening classes
+        // 
         mobileMenu.classList.remove('opacity-0', 'invisible', 'max-h-0', '-translate-y-2');
         mobileMenu.classList.add('opacity-100', 'visible', 'max-h-screen', 'translate-y-0');
         
-        // Update button icon to close
+        // Update button icon to close (X) icon
         const icon = mobileMenuButton.querySelector('svg');
         if (icon) {
           icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
         }
         
+        // 
         // Add staggered animation to menu items
+        // Creates smooth entrance effect for better UX
+        // 
         const menuItems = mobileMenu.querySelectorAll('a');
         menuItems.forEach((item, index) => {
           item.style.animationDelay = `${index * 50}ms`;
@@ -304,26 +599,36 @@ if (!currentPath.startsWith('/')) {
     });
   }
 
+  // 
   // Close mobile menu when clicking outside
+  // Improves UX by allowing users to close menu by clicking elsewhere
+  // 
   document.addEventListener('click', (event) => {
     if (mobileMenu && mobileMenuButton) {
       const isClickInsideMenu = mobileMenu.contains(event.target as Node);
       const isClickOnButton = mobileMenuButton.contains(event.target as Node);
       
+      // Close menu if click is outside both menu and button
       if (!isClickInsideMenu && !isClickOnButton && mobileMenu.classList.contains('opacity-100')) {
         mobileMenuButton.click();
       }
     }
   });
 
+  // 
   // Close mobile menu on escape key
+  // Provides keyboard accessibility for closing the menu
+  // 
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('opacity-100')) {
       mobileMenuButton?.click();
     }
   });
 
+  // 
   // Close mobile menu when clicking on menu items
+  // Automatically closes menu after navigation for better UX
+  // 
   if (mobileMenu) {
     const menuLinks = mobileMenu.querySelectorAll('a');
     menuLinks.forEach(link => {
@@ -335,14 +640,20 @@ if (!currentPath.startsWith('/')) {
     });
   }
 
+  // 
   // Language preference saving
+  // Saves user's language preference to localStorage
+  // Improves UX by remembering user's language choice
+  // 
   const languageLinks = document.querySelectorAll('a[href*="/en/"], a[href*="/ja/"], a[href*="/th/"]');
   languageLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = (e.currentTarget as HTMLAnchorElement).getAttribute('href');
       if (href) {
+        // Extract language code from href
         const langCode = href.split('/').find(segment => ['en', 'ja', 'th'].includes(segment));
         if (langCode && ['en', 'ja', 'th'].includes(langCode)) {
+          // Save language preference to localStorage
           localStorage.setItem('preferred-language', langCode);
         }
       }
@@ -350,8 +661,21 @@ if (!currentPath.startsWith('/')) {
   });
 </script>
 
-<!-- Custom CSS for animations -->
+<!-- 
+  ============================================
+  CUSTOM CSS STYLES
+  ============================================
+-->
+
+<!-- 
+  Custom CSS for animations and enhanced styling
+  Provides smooth transitions and visual effects
+-->
 <style>
+  /* 
+    Fade-in-up animation keyframes
+    Creates smooth entrance effect for mobile menu items
+  */
   @keyframes fade-in-up {
     from {
       opacity: 0;
@@ -363,21 +687,35 @@ if (!currentPath.startsWith('/')) {
     }
   }
   
+  /* 
+    Apply fade-in-up animation to elements
+    Used for staggered menu item animations
+  */
   .animate-fade-in-up {
     animation: fade-in-up 0.3s ease-out forwards;
   }
   
-  /* Smooth transitions for mobile menu */
+  /* 
+    Smooth transitions for mobile menu
+    Uses cubic-bezier easing for natural feel
+  */
   #mobile-menu {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  /* Enhanced hover effects */
+  /* 
+    Enhanced hover effects for mobile menu items
+    Provides smooth transitions for interactive elements
+  */
   #mobile-menu a {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  /* Backdrop blur enhancement */
+  /* 
+    Backdrop blur enhancement
+    Provides modern glass-morphism effect
+    Includes webkit prefix for Safari compatibility
+  */
   #mobile-menu {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);

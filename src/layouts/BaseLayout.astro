@@ -1,4 +1,19 @@
 ---
+/**
+ * BaseLayout.astro - Main layout template for all pages
+ * 
+ * This component provides the fundamental HTML structure including:
+ * - Document head with SEO meta tags
+ * - Language detection and internationalization
+ * - Accessibility features (skip links, ARIA labels)
+ * - Global scripts and styles
+ * - Semantic HTML5 structure
+ * 
+ * @fileoverview Production-grade layout component with comprehensive SEO and accessibility
+ * @author VINC Placement Development Team
+ * @version 1.0.0
+ */
+
 // Import necessary utilities and types
 import { getLangFromUrl, t } from '@/i18n/utils';
 import { generateSEOMeta, generateOrganizationSchema } from '@/utils/seo';
@@ -7,7 +22,12 @@ import type { SEOMeta } from '@/types';
 // Import global styles
 import '@/styles/global.css';
 
-// Component props interface
+/**
+ * Component props interface
+ * @interface Props
+ * @property {SEOMeta} seo - SEO metadata for the page
+ * @property {string} [className] - Optional CSS class for main content wrapper
+ */
 interface Props {
   seo: SEOMeta; // SEO metadata for the page
   class?: string; // Optional CSS class for main content
@@ -16,31 +36,46 @@ interface Props {
 // Destructure props with default values
 const { seo, class: className = '' } = Astro.props;
 
-// Get current language from URL
+// Get current language from URL for internationalization
 const lang = getLangFromUrl(Astro.url);
 
-// Generate organization schema for all pages
+// Generate organization schema for structured data (JSON-LD)
 const orgSchema = generateOrganizationSchema();
 ---
 
 <!doctype html>
 <html lang={lang} class='scroll-smooth dark'>
   <head>
-    <!-- Essential meta tags -->
+    <!-- 
+      ============================================
+      DOCUMENT HEAD - SEO, PERFORMANCE & ACCESSIBILITY
+      ============================================
+    -->
+    
+    <!-- Essential meta tags for proper document rendering -->
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
 
-    <!-- Primary SEO Meta Tags -->
+    <!-- 
+      Primary SEO Meta Tags
+      These are the most important tags for search engine optimization
+    -->
     <title>{seo.title}</title>
     <meta name='title' content={seo.title} />
     <meta name='description' content={seo.description} />
     {seo.keywords && <meta name='keywords' content={seo.keywords.join(', ')} />}
 
-    <!-- Canonical URL - prevents duplicate content issues -->
+    <!-- 
+      Canonical URL - prevents duplicate content issues
+      Helps search engines understand the preferred version of the page
+    -->
     <link rel='canonical' href={seo.canonical} />
 
-    <!-- Alternate language versions for international SEO (hreflang) -->
+    <!-- 
+      Alternate language versions for international SEO (hreflang)
+      Essential for multilingual websites to avoid duplicate content penalties
+    -->
     {
       seo.alternates?.map((alt) => (
         <link
@@ -50,14 +85,17 @@ const orgSchema = generateOrganizationSchema();
         />
       ))
     }
-    <!-- Default language fallback -->
+    <!-- Default language fallback for search engines -->
     <link
       rel='alternate'
       hreflang='x-default'
       href={`https://www.vincplacement.com/en/`}
     />
 
-    <!-- Open Graph / Facebook Meta Tags -->
+    <!-- 
+      Open Graph / Facebook Meta Tags
+      Controls how content appears when shared on social media platforms
+    -->
     <meta property='og:type' content='website' />
     <meta property='og:url' content={seo.canonical} />
     <meta property='og:title' content={seo.title} />
@@ -65,35 +103,59 @@ const orgSchema = generateOrganizationSchema();
     <meta property='og:image' content={seo.image} />
     <meta property='og:locale' content={`${lang}_${lang.toUpperCase()}`} />
 
-    <!-- Twitter Card Meta Tags -->
+    <!-- 
+      Twitter Card Meta Tags
+      Optimizes content appearance when shared on Twitter/X
+    -->
     <meta property='twitter:card' content='summary_large_image' />
     <meta property='twitter:url' content={seo.canonical} />
     <meta property='twitter:title' content={seo.title} />
     <meta property='twitter:description' content={seo.description} />
     <meta property='twitter:image' content={seo.image} />
 
-    <!-- Favicon -->
+    <!-- 
+      Favicon and app icons
+      Provides visual identity in browser tabs and bookmarks
+    -->
     <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 
-    <!-- Theme color for browser UI (mobile browsers) -->
+    <!-- 
+      Theme color for browser UI (mobile browsers)
+      Sets the color of the browser's address bar and UI elements
+    -->
     <meta name='theme-color' content='#3b82f6' />
 
-    <!-- Preconnect to external domains for performance -->
+    <!-- 
+      Performance optimizations
+      Preconnect to external domains to reduce connection time
+    -->
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
 
-    <!-- Google Fonts - Inter and Poppins -->
+    <!-- 
+      Google Fonts - Inter and Poppins
+      Loads custom fonts with display=swap for better performance
+    -->
     <link
       href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap'
       rel='stylesheet'
     />
 
-    <!-- Structured Data (JSON-LD) for better search engine understanding -->
+    <!-- 
+      Structured Data (JSON-LD) for better search engine understanding
+      Helps search engines understand the content and context of the page
+    -->
     <script type='application/ld+json' set:html={JSON.stringify(orgSchema)} />
 
-    <!-- Inline critical CSS for better performance (optional) -->
+    <!-- 
+      Inline critical CSS for better performance
+      Prevents flash of unstyled content (FOUC) and improves perceived performance
+    -->
     <style is:global>
-      /* Prevent flash of unstyled content */
+      /* 
+        Font family declaration to prevent layout shift
+        Uses system fonts as fallback for better performance
+      */
       html {
         font-family:
           'Inter',
@@ -102,17 +164,27 @@ const orgSchema = generateOrganizationSchema();
           sans-serif;
       }
 
-      /* Smooth scrolling behavior */
+      /* 
+        Smooth scrolling behavior for better user experience
+        Provides smooth scrolling when navigating with anchor links
+      */
       html.scroll-smooth {
         scroll-behavior: smooth;
       }
 
-      /* Loading state to prevent content jump */
+      /* 
+        Loading state to prevent content jump
+        Gradually reveals content after styles are loaded
+      */
       body {
         opacity: 0;
         animation: fadeIn 0.3s ease-in-out forwards;
       }
 
+      /* 
+        Fade-in animation keyframes
+        Creates smooth content appearance effect
+      */
       @keyframes fadeIn {
         to {
           opacity: 1;
@@ -122,31 +194,78 @@ const orgSchema = generateOrganizationSchema();
   </head>
 
   <body class='antialiased bg-white text-gray-900 overflow-x-hidden'>
-    <!-- Skip to main content link for accessibility -->
+    <!-- 
+      ============================================
+      ACCESSIBILITY FEATURES
+      ============================================
+    -->
+    
+    <!-- 
+      Skip to main content link for keyboard navigation accessibility
+      Allows users with screen readers or keyboard navigation to skip directly to main content
+      Hidden by default, visible when focused
+    -->
     <a
       href='#main-content'
       class='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded'
+      aria-label='Skip to main content'
     >
       Skip to main content
     </a>
 
-    <!-- Site Header - imported dynamically in next phase -->
+    <!-- 
+      ============================================
+      PAGE STRUCTURE - SEMANTIC HTML5 LAYOUT
+      ============================================
+    -->
+
+    <!-- 
+      Site Header Slot
+      Contains navigation, logo, and site-wide controls
+      Uses semantic <header> element for better accessibility and SEO
+    -->
     <slot name='header' />
 
-    <!-- Main Content Area -->
-    <main id='main-content' class={`min-h-screen ${className}`}>
+    <!-- 
+      Main Content Area
+      The primary content of the page, wrapped in semantic <main> element
+      Each page's unique content will be rendered here
+      Uses landmark role for screen readers and search engines
+    -->
+    <main id='main-content' class={`min-h-screen ${className}`} role='main'>
       <slot />
     </main>
 
-    <!-- Site Footer - imported dynamically in next phase -->
+    <!-- 
+      Site Footer Slot
+      Contains site-wide information, links, and contact details
+      Uses semantic <footer> element for better structure
+    -->
     <slot name='footer' />
 
-    <!-- Back to top button (optional enhancement) -->
+    <!-- 
+      ============================================
+      USER EXPERIENCE ENHANCEMENTS
+      ============================================
+    -->
+
+    <!-- 
+      Back to top button
+      Provides easy navigation back to the top of the page
+      Hidden by default, appears when user scrolls down
+      Includes proper ARIA labels and focus management
+    -->
     <button
       id='back-to-top'
-      aria-label='Back to top'
+      aria-label='Back to top of page'
       class='fixed bottom-8 right-8 z-40 p-3 bg-primary-600 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-primary-700 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2'
+      type='button'
     >
+      <!-- 
+        Chevron up icon
+        Uses SVG for crisp rendering at all sizes
+        Hidden from screen readers with aria-hidden
+      -->
       <svg
         class='w-6 h-6'
         fill='none'
@@ -162,26 +281,51 @@ const orgSchema = generateOrganizationSchema();
       </svg>
     </button>
 
-    <!-- Global scripts -->
+    <!-- 
+      ============================================
+      GLOBAL JAVASCRIPT FUNCTIONALITY
+      ============================================
+    -->
+    
     <script>
-      // Back to top button functionality
+      /**
+       * Back to top button functionality
+       * Provides smooth scrolling back to the top of the page
+       * Shows/hides button based on scroll position for better UX
+       */
+      
+      // Get reference to the back to top button
       const backToTopButton = document.getElementById('back-to-top');
 
+      // 
       // Show/hide button based on scroll position
+      // Uses passive event listener for better performance
+      // 
       window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
+          // Show button when scrolled down more than 300px
           backToTopButton?.classList.remove('opacity-0', 'pointer-events-none');
         } else {
+          // Hide button when near the top
           backToTopButton?.classList.add('opacity-0', 'pointer-events-none');
         }
-      });
+      }, { passive: true });
 
+      // 
       // Scroll to top on button click
+      // Uses smooth scrolling behavior for better UX
+      // 
       backToTopButton?.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        window.scrollTo({ 
+          top: 0, 
+          behavior: 'smooth' 
+        });
       });
 
-      // Prevent horizontal scroll
+      // 
+      // Prevent horizontal scroll overflow
+      // Ensures content doesn't cause horizontal scrolling issues
+      // 
       document.body.style.overflowX = 'hidden';
     </script>
   </body>

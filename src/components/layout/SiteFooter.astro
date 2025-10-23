@@ -1,10 +1,30 @@
 ---
+/**
+ * SiteFooter.astro - Main site footer component
+ * 
+ * This component provides the site-wide footer including:
+ * - Company information and branding
+ * - Contact information with proper semantic structure
+ * - Navigation links for quick access
+ * - Service links for easy discovery
+ * - Copyright and legal information
+ * - Semantic HTML5 structure for better SEO and accessibility
+ * 
+ * @fileoverview Production-grade footer component with comprehensive information architecture
+ * @author VINC Placement Development Team
+ * @version 1.0.0
+ */
+
 // Footer component with contact info, links, and newsletter signup
 import Logo from '@/components/common/Logo.astro';
 import { getLangFromUrl, t } from '@/i18n/utils';
 import { CONTACT_INFO, SITE_CONFIG, ROUTES } from '@/utils/constants';
 
-// Component props interface
+/**
+ * Component props interface
+ * @interface Props
+ * @property {string} [className] - Optional CSS class for footer styling
+ */
 interface Props {
   class?: string;
 }
@@ -12,10 +32,13 @@ interface Props {
 // Destructure props
 const { class: className = '' } = Astro.props;
 
-// Get current language from URL
+// Get current language from URL for internationalization
 const lang = getLangFromUrl(Astro.url);
 
-// Quick links for footer
+// 
+// Quick links for footer navigation
+// Provides easy access to main site sections
+// 
 const quickLinks = [
   { key: 'home', href: `/${lang}` },
   { key: 'about', href: `/${lang}/about` },
@@ -24,7 +47,11 @@ const quickLinks = [
   { key: 'contact', href: `/${lang}/contact` },
 ];
 
-// Service links
+// 
+// Service links for footer
+// Direct links to specific service sections
+// Helps users find relevant information quickly
+// 
 const serviceLinks = [
   { key: 'workforce', href: `/${lang}/services#workforce` },
   { key: 'engineering', href: `/${lang}/services#engineering` },
@@ -33,23 +60,87 @@ const serviceLinks = [
 ];
 ---
 
-<footer class={`bg-gray-900 dark:bg-black text-white ${className}`}>
-  <!-- Main Footer Content -->
+<!-- 
+  ============================================
+  SITE FOOTER - SEMANTIC HTML5 STRUCTURE
+  ============================================
+-->
+
+<!-- 
+  Main site footer element
+  Uses semantic <footer> tag for better accessibility and SEO
+  Contains site-wide information, links, and contact details
+-->
+<footer 
+  class={`bg-gray-900 dark:bg-black text-white ${className}`}
+  role="contentinfo"
+>
+  <!-- 
+    ============================================
+    MAIN FOOTER CONTENT SECTION
+    ============================================
+  -->
+  
+  <!-- 
+    Footer content container
+    Uses responsive grid layout for proper organization
+    Contains all footer sections with consistent spacing
+  -->
   <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
+    <!-- 
+      Footer content grid
+      Responsive grid that adapts to different screen sizes
+      Organizes footer content into logical sections
+    -->
     <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
-      <!-- Company Info -->
+      
+      <!-- 
+        ============================================
+        COMPANY INFORMATION SECTION
+        ============================================
+      -->
+      
+      <!-- 
+        Company info section
+        Contains logo, description, and contact information
+        Uses semantic <section> element for better structure
+      -->
       <section class='lg:col-span-1'>
+        <!-- 
+          Company logo header
+          Uses semantic <header> element for proper heading structure
+          Contains the company logo and branding
+        -->
         <header class='mb-6'>
           <Logo variant='full' size='lg' />
         </header>
 
+        <!-- 
+          Company description
+          Provides brief overview of the company's mission and services
+          Uses semantic <p> element for proper text structure
+        -->
         <p class='text-gray-300 text-sm leading-relaxed mb-6'>
           {t(lang, 'footer.about_text')}
         </p>
 
-        <!-- Contact Info -->
+        <!-- 
+          Contact information section
+          Uses semantic <address> element for contact details
+          Contains phone, email, and physical address information
+        -->
         <address class='space-y-3 not-italic'>
+          <!-- 
+            Physical address
+            Uses proper semantic structure with icon and text
+            Includes accessibility features for screen readers
+          -->
           <div class='flex items-start space-x-3'>
+            <!-- 
+              Location icon
+              Visual indicator for address information
+              Hidden from screen readers as decorative
+            -->
             <svg
               class='w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0'
               fill='none'
@@ -69,6 +160,11 @@ const serviceLinks = [
                 stroke-width='2'
                 d='M15 11a3 3 0 11-6 0 3 3 0 016 0z'></path>
             </svg>
+            <!-- 
+              Address text
+              Contains the physical address information
+              Uses semantic <p> element for proper text structure
+            -->
             <div>
               <p class='text-gray-300 text-sm'>
                 {CONTACT_INFO.address}
@@ -76,7 +172,17 @@ const serviceLinks = [
             </div>
           </div>
 
+          <!-- 
+            Phone number section
+            Contains contact phone numbers with proper linking
+            Uses semantic structure for better accessibility
+          -->
           <div class='flex items-center space-x-3'>
+            <!-- 
+              Phone icon
+              Visual indicator for phone information
+              Hidden from screen readers as decorative
+            -->
             <svg
               class='w-5 h-5 text-primary-400 flex-shrink-0'
               fill='none'
@@ -91,13 +197,19 @@ const serviceLinks = [
                 d='M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'
               ></path>
             </svg>
+            <!-- 
+              Phone numbers
+              Multiple phone numbers with proper tel: links
+              Each number is wrapped in semantic <p> element
+            -->
             <div>
               {
                 CONTACT_INFO.phone.map((phone, index) => (
-                  <p class='text-gray-300 text-sm'>
+                  <p class='text-gray-300 text-sm' key={index}>
                     <a
                       href={`tel:${phone}`}
                       class='hover:text-primary-400 transition-colors duration-200'
+                      aria-label={`Call us at ${phone}`}
                     >
                       {phone}
                     </a>
@@ -107,7 +219,17 @@ const serviceLinks = [
             </div>
           </div>
 
+          <!-- 
+            Email address section
+            Contains contact email with proper mailto: link
+            Uses semantic structure for better accessibility
+          -->
           <div class='flex items-center space-x-3'>
+            <!-- 
+              Email icon
+              Visual indicator for email information
+              Hidden from screen readers as decorative
+            -->
             <svg
               class='w-5 h-5 text-primary-400 flex-shrink-0'
               fill='none'
@@ -122,10 +244,16 @@ const serviceLinks = [
                 d='M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
               ></path>
             </svg>
+            <!-- 
+              Email address
+              Contact email with proper mailto: link
+              Includes hover effects and accessibility features
+            -->
             <div>
               <a
                 href={`mailto:${CONTACT_INFO.email}`}
                 class='text-gray-300 text-sm hover:text-primary-400 transition-colors duration-200'
+                aria-label={`Send us an email at ${CONTACT_INFO.email}`}
               >
                 {CONTACT_INFO.email}
               </a>
@@ -134,18 +262,39 @@ const serviceLinks = [
         </address>
       </section>
 
-      <!-- Quick Links -->
+      <!-- 
+        ============================================
+        QUICK LINKS NAVIGATION SECTION
+        ============================================
+      -->
+      
+      <!-- 
+        Quick links navigation
+        Provides easy access to main site sections
+        Uses semantic <nav> element with proper heading structure
+      -->
       <nav>
+        <!-- 
+          Section heading
+          Uses semantic <h3> element for proper heading hierarchy
+          Provides context for the navigation links
+        -->
         <h3 class='text-lg font-semibold text-white mb-6'>
           {t(lang, 'footer.quick_links')}
         </h3>
+        <!-- 
+          Quick links list
+          Uses semantic <ul> element for proper list structure
+          Each link includes hover effects and proper styling
+        -->
         <ul class='space-y-3'>
           {
             quickLinks.map((link) => (
-              <li>
+              <li key={link.key}>
                 <a
                   href={link.href}
                   class='text-gray-300 text-sm hover:text-primary-400 transition-colors duration-200'
+                  aria-label={`Navigate to ${t(lang, `nav.${link.key}`)}`}
                 >
                   {t(lang, `nav.${link.key}`)}
                 </a>
@@ -155,18 +304,39 @@ const serviceLinks = [
         </ul>
       </nav>
 
-      <!-- Services -->
+      <!-- 
+        ============================================
+        SERVICES NAVIGATION SECTION
+        ============================================
+      -->
+      
+      <!-- 
+        Services navigation
+        Provides direct links to specific service sections
+        Uses semantic <nav> element with proper heading structure
+      -->
       <nav>
+        <!-- 
+          Section heading
+          Uses semantic <h3> element for proper heading hierarchy
+          Provides context for the service links
+        -->
         <h3 class='text-lg font-semibold text-white mb-6'>
           {t(lang, 'footer.services_title')}
         </h3>
+        <!-- 
+          Service links list
+          Uses semantic <ul> element for proper list structure
+          Each link includes hover effects and proper styling
+        -->
         <ul class='space-y-3'>
           {
             serviceLinks.map((link) => (
-              <li>
+              <li key={link.key}>
                 <a
                   href={link.href}
                   class='text-gray-300 text-sm hover:text-primary-400 transition-colors duration-200'
+                  aria-label={`Learn more about ${t(lang, `services.${link.key}.title`)}`}
                 >
                   {t(lang, `services.${link.key}.title`)}
                 </a>
@@ -176,18 +346,56 @@ const serviceLinks = [
         </ul>
       </nav>
 
-      <!-- Newsletter removed per request -->
+      <!-- 
+        Newsletter section removed per request
+        This space is available for future content additions
+      -->
     </div>
   </div>
 
-  <!-- Bottom Footer -->
+  <!-- 
+    ============================================
+    BOTTOM FOOTER SECTION
+    ============================================
+  -->
+  
+  <!-- 
+    Bottom footer container
+    Contains copyright information and additional links
+    Uses border-top for visual separation from main footer content
+  -->
   <div class='border-t border-gray-800'>
+    <!-- 
+      Bottom footer content wrapper
+      Uses responsive flexbox layout for proper alignment
+      Contains copyright and additional information
+    -->
     <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6'>
+      <!-- 
+        Bottom footer content
+        Flexbox layout that stacks on mobile and aligns horizontally on desktop
+        Contains copyright information and additional links
+      -->
       <div
         class='flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0'
       >
-        <!-- Copyright -->
+        <!-- 
+          ============================================
+          COPYRIGHT INFORMATION SECTION
+          ============================================
+        -->
+        
+        <!-- 
+          Copyright and company information
+          Contains copyright notice and company slogan
+          Uses semantic structure for proper text organization
+        -->
         <div class='text-gray-400 text-sm text-center md:text-left'>
+          <!-- 
+            Copyright notice
+            Uses semantic <p> element for proper text structure
+            Dynamically updates year from site configuration
+          -->
           <p>
             {
               t(lang, 'footer.copyright').replace(
@@ -196,11 +404,31 @@ const serviceLinks = [
               )
             }
           </p>
+          <!-- 
+            Company slogan
+            Additional branding text for company identity
+            Uses semantic <p> element for proper text structure
+          -->
           <p class='mt-1 text-xs'>{t(lang, 'footer.slogan')}</p>
         </div>
 
-        <!-- Google Maps Link -->
+        <!-- 
+          ============================================
+          ADDITIONAL LINKS SECTION
+          ============================================
+        -->
+        
+        <!-- 
+          Google Maps link
+          Provides easy access to company location
+          Uses semantic structure with proper icon and link
+        -->
         <div class='flex items-center space-x-2'>
+          <!-- 
+            Location icon
+            Visual indicator for map link
+            Hidden from screen readers as decorative
+          -->
           <svg
             class='w-4 h-4 text-gray-400'
             fill='none'
@@ -220,11 +448,17 @@ const serviceLinks = [
               stroke-width='2'
               d='M15 11a3 3 0 11-6 0 3 3 0 016 0z'></path>
           </svg>
+          <!-- 
+            Google Maps link
+            Opens company location in Google Maps
+            Includes proper accessibility attributes and external link handling
+          -->
           <a
             href={CONTACT_INFO.googleMapsUrl}
             target='_blank'
             rel='noopener noreferrer'
             class='text-gray-400 hover:text-primary-400 text-sm transition-colors duration-200'
+            aria-label='View our location on Google Maps'
           >
             {t(lang, 'contact.view_map')}
           </a>

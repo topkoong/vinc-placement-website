@@ -356,12 +356,83 @@ pnpm astro check
 - Avoid `any` type when possible
 - Use proper imports/exports
 
-### HTML
+### HTML5 Semantic Elements
 
-- Use semantic HTML elements
-- Include proper ARIA labels
-- Ensure accessibility compliance
-- Validate markup
+#### Required Semantic Elements
+- **`<header>`** - Site header, page header, or section header
+- **`<nav>`** - Navigation menus and links
+- **`<main>`** - Primary content of the page
+- **`<section>`** - Thematic grouping of content
+- **`<article>`** - Self-contained content that could be distributed independently
+- **`<aside>`** - Content tangentially related to main content
+- **`<footer>`** - Site footer, page footer, or section footer
+- **`<figure>`** - Self-contained content with optional caption
+- **`<figcaption>`** - Caption for figure content
+- **`<address>`** - Contact information
+
+#### Semantic HTML Guidelines
+```html
+<!-- ✅ Correct semantic structure -->
+<header role="banner">
+  <nav aria-label="Main navigation">
+    <ul role="menubar">
+      <li role="none">
+        <a href="/about" role="menuitem">About</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main role="main">
+  <section aria-label="Hero section">
+    <h1>Page Title</h1>
+    <p>Page description</p>
+  </section>
+  
+  <article>
+    <header>
+      <h2>Article Title</h2>
+    </header>
+    <p>Article content</p>
+  </article>
+</main>
+
+<footer role="contentinfo">
+  <address>
+    <p>Contact information</p>
+  </address>
+</footer>
+```
+
+#### Accessibility Requirements
+- Include proper ARIA labels and roles
+- Use semantic heading hierarchy (h1 → h2 → h3)
+- Provide alt text for all images
+- Ensure keyboard navigation works
+- Use proper form labels and associations
+- Validate markup with W3C validator
+
+#### ARIA Best Practices
+```html
+<!-- Navigation with proper ARIA -->
+<nav aria-label="Main navigation">
+  <ul role="menubar">
+    <li role="none">
+      <a href="/home" role="menuitem" aria-current="page">Home</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Interactive elements with ARIA -->
+<button aria-expanded="false" aria-controls="menu" aria-label="Toggle menu">
+  Menu
+</button>
+
+<!-- Form with proper labeling -->
+<label for="email">Email Address</label>
+<input type="email" id="email" aria-describedby="email-help" required>
+<div id="email-help">We'll never share your email</div>
+```
 
 ### CSS
 

@@ -197,6 +197,153 @@ https://vincplacement.com/ja/services/ # Japanese services
 https://vincplacement.com/en/jobs/     # English job listings
 ```
 
+## 🏗️ Semantic HTML5 for SEO
+
+### HTML5 Semantic Elements
+
+#### Document Structure
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Meta tags and document head -->
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only">Skip to main content</a>
+  
+  <!-- Site header -->
+  <header role="banner">
+    <nav aria-label="Main navigation">
+      <!-- Navigation content -->
+    </nav>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main-content" role="main">
+    <!-- Page content -->
+  </main>
+  
+  <!-- Site footer -->
+  <footer role="contentinfo">
+    <!-- Footer content -->
+  </footer>
+</body>
+</html>
+```
+
+#### Content Structure
+```html
+<!-- Hero section -->
+<section aria-label="Hero section">
+  <h1>Main Page Title</h1>
+  <p>Page description</p>
+</section>
+
+<!-- About section -->
+<section aria-label="About us">
+  <header>
+    <h2>About VINC Placement</h2>
+  </header>
+  <article>
+    <p>Company information</p>
+  </article>
+</section>
+
+<!-- Services section -->
+<section aria-label="Our services">
+  <h2>Services</h2>
+  <div class="services-grid">
+    <article>
+      <header>
+        <h3>Workforce Solutions</h3>
+      </header>
+      <p>Service description</p>
+    </article>
+  </div>
+</section>
+```
+
+#### Image Optimization
+```html
+<!-- Optimized images with semantic structure -->
+<figure>
+  <img 
+    src="hero-image.jpg" 
+    alt="Thai workers in Japanese manufacturing facility"
+    loading="eager"
+    fetchpriority="high"
+    width="1200"
+    height="800"
+  />
+  <figcaption>
+    Skilled Thai workers contributing to Japanese manufacturing excellence
+  </figcaption>
+</figure>
+```
+
+#### Contact Information
+```html
+<!-- Semantic contact information -->
+<address>
+  <h3>Contact Information</h3>
+  <p>
+    <strong>VINC Placement Co., Ltd.</strong><br>
+    163/1 Nuanchan Road, Nuanchan, Buengkum<br>
+    Bangkok 10230, Thailand
+  </p>
+  <p>
+    Phone: <a href="tel:+66-2-949-9572">+66-2-949-9572</a><br>
+    Email: <a href="mailto:info@vincplacement.com">info@vincplacement.com</a>
+  </p>
+</address>
+```
+
+### Accessibility for SEO
+
+#### ARIA Labels and Roles
+```html
+<!-- Navigation with proper ARIA -->
+<nav aria-label="Main navigation">
+  <ul role="menubar">
+    <li role="none">
+      <a href="/about" role="menuitem" aria-current="page">About</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Interactive elements -->
+<button 
+  aria-expanded="false" 
+  aria-controls="mobile-menu" 
+  aria-label="Toggle mobile menu"
+>
+  Menu
+</button>
+
+<!-- Form accessibility -->
+<label for="email">Email Address</label>
+<input 
+  type="email" 
+  id="email" 
+  aria-describedby="email-help" 
+  aria-required="true"
+>
+<div id="email-help">We'll never share your email</div>
+```
+
+#### Heading Hierarchy
+```html
+<!-- Proper heading structure -->
+<h1>VINC Placement - Thailand-Japan Workforce Solutions</h1>
+  <h2>For Employers</h2>
+    <h3>Construction Workers</h3>
+    <h3>Manufacturing Workers</h3>
+  <h2>For Workers</h2>
+    <h3>Job Opportunities</h3>
+    <h3>Application Process</h3>
+```
+
 ## 🚀 Performance SEO
 
 ### 1. Core Web Vitals Optimization
