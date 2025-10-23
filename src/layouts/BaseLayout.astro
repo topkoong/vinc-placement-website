@@ -9,8 +9,8 @@ import '@/styles/global.css';
 
 // Component props interface
 interface Props {
-  seo: SEOMeta;         // SEO metadata for the page
-  class?: string;       // Optional CSS class for main content
+  seo: SEOMeta; // SEO metadata for the page
+  class?: string; // Optional CSS class for main content
 }
 
 // Destructure props with default values
@@ -23,66 +23,83 @@ const lang = getLangFromUrl(Astro.url);
 const orgSchema = generateOrganizationSchema();
 ---
 
-<!DOCTYPE html>
-<html lang={lang} class="scroll-smooth dark">
+<!doctype html>
+<html lang={lang} class='scroll-smooth dark'>
   <head>
     <!-- Essential meta tags -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='IE=edge' />
 
     <!-- Primary SEO Meta Tags -->
     <title>{seo.title}</title>
-    <meta name="title" content={seo.title} />
-    <meta name="description" content={seo.description} />
-    {seo.keywords && <meta name="keywords" content={seo.keywords.join(', ')} />}
+    <meta name='title' content={seo.title} />
+    <meta name='description' content={seo.description} />
+    {seo.keywords && <meta name='keywords' content={seo.keywords.join(', ')} />}
 
     <!-- Canonical URL - prevents duplicate content issues -->
-    <link rel="canonical" href={seo.canonical} />
+    <link rel='canonical' href={seo.canonical} />
 
     <!-- Alternate language versions for international SEO (hreflang) -->
-    {seo.alternates?.map((alt) => (
-      <link rel="alternate" hreflang={alt.lang} href={`https://www.vincplacement.com${alt.href}`} />
-    ))}
+    {
+      seo.alternates?.map((alt) => (
+        <link
+          rel='alternate'
+          hreflang={alt.lang}
+          href={`https://www.vincplacement.com${alt.href}`}
+        />
+      ))
+    }
     <!-- Default language fallback -->
-    <link rel="alternate" hreflang="x-default" href={`https://www.vincplacement.com/en/`} />
+    <link
+      rel='alternate'
+      hreflang='x-default'
+      href={`https://www.vincplacement.com/en/`}
+    />
 
     <!-- Open Graph / Facebook Meta Tags -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={seo.canonical} />
-    <meta property="og:title" content={seo.title} />
-    <meta property="og:description" content={seo.description} />
-    <meta property="og:image" content={seo.image} />
-    <meta property="og:locale" content={`${lang}_${lang.toUpperCase()}`} />
+    <meta property='og:type' content='website' />
+    <meta property='og:url' content={seo.canonical} />
+    <meta property='og:title' content={seo.title} />
+    <meta property='og:description' content={seo.description} />
+    <meta property='og:image' content={seo.image} />
+    <meta property='og:locale' content={`${lang}_${lang.toUpperCase()}`} />
 
     <!-- Twitter Card Meta Tags -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={seo.canonical} />
-    <meta property="twitter:title" content={seo.title} />
-    <meta property="twitter:description" content={seo.description} />
-    <meta property="twitter:image" content={seo.image} />
+    <meta property='twitter:card' content='summary_large_image' />
+    <meta property='twitter:url' content={seo.canonical} />
+    <meta property='twitter:title' content={seo.title} />
+    <meta property='twitter:description' content={seo.description} />
+    <meta property='twitter:image' content={seo.image} />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 
     <!-- Theme color for browser UI (mobile browsers) -->
-    <meta name="theme-color" content="#3b82f6" />
+    <meta name='theme-color' content='#3b82f6' />
 
     <!-- Preconnect to external domains for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
 
     <!-- Google Fonts - Inter and Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap'
+      rel='stylesheet'
+    />
 
     <!-- Structured Data (JSON-LD) for better search engine understanding -->
-    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    <script type='application/ld+json' set:html={JSON.stringify(orgSchema)} />
 
     <!-- Inline critical CSS for better performance (optional) -->
     <style is:global>
       /* Prevent flash of unstyled content */
       html {
-        font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        font-family:
+          'Inter',
+          system-ui,
+          -apple-system,
+          sans-serif;
       }
 
       /* Smooth scrolling behavior */
@@ -104,34 +121,44 @@ const orgSchema = generateOrganizationSchema();
     </style>
   </head>
 
-  <body class="antialiased bg-white text-gray-900 overflow-x-hidden">
+  <body class='antialiased bg-white text-gray-900 overflow-x-hidden'>
     <!-- Skip to main content link for accessibility -->
     <a
-      href="#main-content"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded"
+      href='#main-content'
+      class='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-600 focus:text-white focus:rounded'
     >
       Skip to main content
     </a>
 
     <!-- Site Header - imported dynamically in next phase -->
-    <slot name="header" />
+    <slot name='header' />
 
     <!-- Main Content Area -->
-    <main id="main-content" class={`min-h-screen ${className}`}>
+    <main id='main-content' class={`min-h-screen ${className}`}>
       <slot />
     </main>
 
     <!-- Site Footer - imported dynamically in next phase -->
-    <slot name="footer" />
+    <slot name='footer' />
 
     <!-- Back to top button (optional enhancement) -->
     <button
-      id="back-to-top"
-      aria-label="Back to top"
-      class="fixed bottom-8 right-8 z-40 p-3 bg-primary-600 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-primary-700 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+      id='back-to-top'
+      aria-label='Back to top'
+      class='fixed bottom-8 right-8 z-40 p-3 bg-primary-600 text-white rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-primary-700 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2'
     >
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+      <svg
+        class='w-6 h-6'
+        fill='none'
+        stroke='currentColor'
+        viewBox='0 0 24 24'
+        aria-hidden='true'
+      >
+        <path
+          stroke-linecap='round'
+          stroke-linejoin='round'
+          stroke-width='2'
+          d='M5 10l7-7m0 0l7 7m-7-7v18'></path>
       </svg>
     </button>
 

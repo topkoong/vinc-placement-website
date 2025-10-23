@@ -38,23 +38,24 @@ const serviceLinks = [
   <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
     <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
       <!-- Company Info -->
-      <div class='lg:col-span-1'>
-        <div class='mb-6'>
+      <section class='lg:col-span-1'>
+        <header class='mb-6'>
           <Logo variant='full' size='lg' />
-        </div>
+        </header>
 
         <p class='text-gray-300 text-sm leading-relaxed mb-6'>
           {t(lang, 'footer.about_text')}
         </p>
 
         <!-- Contact Info -->
-        <div class='space-y-3'>
+        <address class='space-y-3 not-italic'>
           <div class='flex items-start space-x-3'>
             <svg
               class='w-5 h-5 text-primary-400 mt-0.5 flex-shrink-0'
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
+              aria-hidden='true'
             >
               <path
                 stroke-linecap='round'
@@ -81,6 +82,7 @@ const serviceLinks = [
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
+              aria-hidden='true'
             >
               <path
                 stroke-linecap='round'
@@ -111,6 +113,7 @@ const serviceLinks = [
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
+              aria-hidden='true'
             >
               <path
                 stroke-linecap='round'
@@ -128,11 +131,11 @@ const serviceLinks = [
               </a>
             </div>
           </div>
-        </div>
-      </div>
+        </address>
+      </section>
 
       <!-- Quick Links -->
-      <div>
+      <nav>
         <h3 class='text-lg font-semibold text-white mb-6'>
           {t(lang, 'footer.quick_links')}
         </h3>
@@ -150,10 +153,10 @@ const serviceLinks = [
             ))
           }
         </ul>
-      </div>
+      </nav>
 
       <!-- Services -->
-      <div>
+      <nav>
         <h3 class='text-lg font-semibold text-white mb-6'>
           {t(lang, 'footer.services_title')}
         </h3>
@@ -171,7 +174,7 @@ const serviceLinks = [
             ))
           }
         </ul>
-      </div>
+      </nav>
 
       <!-- Newsletter removed per request -->
     </div>
@@ -203,6 +206,7 @@ const serviceLinks = [
             fill='none'
             stroke='currentColor'
             viewBox='0 0 24 24'
+            aria-hidden='true'
           >
             <path
               stroke-linecap='round'

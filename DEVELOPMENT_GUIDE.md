@@ -38,27 +38,41 @@ pnpm astro check
 ```
 src/
 ├── components/
-│   ├── common/          # Shared components (Logo, ThemeToggle)
-│   ├── layout/          # Layout components (Header, Footer)
-│   └── sections/        # Page sections (Hero, About, Services)
-├── pages/
-│   ├── en/              # English pages
-│   ├── ja/              # Japanese pages
-│   └── th/              # Thai pages
+│   ├── common/              # Shared components (Logo, ThemeToggle)
+│   ├── layout/              # Layout components (SiteHeader, SiteFooter)
+│   └── sections/            # Page sections (HeroSection, AboutSection, etc.)
+├── pages/                   # Route pages (PascalCase)
+│   ├── en/                  # English pages
+│   │   ├── Index.astro      # Homepage
+│   │   ├── About.astro      # About page
+│   │   ├── Services.astro   # Services page
+│   │   ├── Projects.astro   # Projects page
+│   │   └── Contact.astro    # Contact page
+│   ├── ja/                  # Japanese pages
+│   └── th/                  # Thai pages
 ├── i18n/
-│   ├── locales/         # Translation files
-│   └── utils.ts         # Translation utilities
+│   ├── locales/             # Translation files
+│   └── utils.ts             # Translation utilities
 └── utils/
-    ├── constants.ts     # App constants
-    └── seo.ts           # SEO utilities
+    ├── constants.ts          # App constants
+    └── seo.ts               # SEO utilities
 ```
+
+**Naming Conventions:**
+- **Pages**: PascalCase (e.g., `About.astro`, `Contact.astro`)
+- **Components**: 
+  - Common: PascalCase (e.g., `Logo.astro`)
+  - Layout: Site prefix (e.g., `SiteHeader.astro`)
+  - Sections: Section suffix (e.g., `HeroSection.astro`)
+- **Utilities**: camelCase (e.g., `constants.ts`)
+- **Styles**: kebab-case (e.g., `global.css`)
 
 ### 3. Component Development
 
 #### Creating New Components
 
 ```typescript
-// src/components/sections/NewSection.astro
+// src/components/sections/NewSectionSection.astro
 ---
 import { t } from '@/i18n/utils';
 import type { Language } from '@/types';
@@ -84,9 +98,17 @@ const { lang } = Astro.props;
 
 1. **Use TypeScript interfaces** for props
 2. **Import translation function** for multilingual support
-3. **Follow naming conventions**: PascalCase for components
+3. **Follow production-grade naming conventions**:
+   - Common components: `ComponentName.astro`
+   - Layout components: `SiteComponentName.astro`
+   - Section components: `SectionNameSection.astro`
 4. **Use semantic HTML** elements
 5. **Include dark mode support** with `dark:` classes
+6. **Import with descriptive names**:
+   ```typescript
+   import SiteHeader from '@/components/layout/SiteHeader.astro';
+   import HeroSection from '@/components/sections/HeroSection.astro';
+   ```
 
 ### 4. Styling Guidelines
 

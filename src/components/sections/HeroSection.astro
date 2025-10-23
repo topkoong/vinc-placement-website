@@ -47,7 +47,7 @@ const stats = [
   id='hero'
 >
   <!-- Modern Background Elements -->
-  <div class='absolute inset-0 pointer-events-none'>
+  <div class='absolute inset-0 pointer-events-none' aria-hidden='true'>
     <!-- Geometric Shapes -->
     <div
       class='absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-3xl rotate-12 opacity-20 animate-pulse'
@@ -75,16 +75,21 @@ const stats = [
   <div
     class='relative container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen py-12 md:py-20 lg:py-24 flex items-center'
   >
-    <div
+    <main
       class='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full'
     >
       <!-- Left Column - Content -->
-      <div class='text-center lg:text-left space-y-6 md:space-y-8'>
+      <section class='text-center lg:text-left space-y-6 md:space-y-8'>
         <!-- Badge -->
         <div
           class='inline-flex items-center px-4 py-2 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-sm font-medium'
         >
-          <svg class='w-4 h-4 mr-2' fill='currentColor' viewBox='0 0 20 20'>
+          <svg
+            class='w-4 h-4 mr-2'
+            fill='currentColor'
+            viewBox='0 0 20 20'
+            aria-hidden='true'
+          >
             <path
               fill-rule='evenodd'
               d='M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z'
@@ -112,8 +117,9 @@ const stats = [
         </p>
 
         <!-- CTA Buttons -->
-        <div
+        <nav
           class='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'
+          aria-label='Main actions'
         >
           <!-- Primary CTA Button -->
           <a
@@ -122,6 +128,7 @@ const stats = [
           >
             <div
               class='absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'
+              aria-hidden='true'
             >
             </div>
             <span class='relative z-10'>{t(lang, 'hero.cta')}</span>
@@ -130,6 +137,7 @@ const stats = [
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
+              aria-hidden='true'
             >
               <path
                 stroke-linecap='round'
@@ -146,6 +154,7 @@ const stats = [
           >
             <div
               class='absolute inset-0 bg-gradient-to-r from-blue-600 to-indigo-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl'
+              aria-hidden='true'
             >
             </div>
             <span class='relative z-10'>{t(lang, 'hero.learn_more')}</span>
@@ -154,6 +163,7 @@ const stats = [
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
+              aria-hidden='true'
             >
               <path
                 stroke-linecap='round'
@@ -162,30 +172,30 @@ const stats = [
                 d='M9 5l7 7-7 7'></path>
             </svg>
           </a>
-        </div>
+        </nav>
 
         <!-- Stats -->
-        <div class='w-full'>
+        <section class='w-full' aria-label='Company statistics'>
           <div class='grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mx-auto'>
             {
               stats.map((stat, index) => (
-                <div class='bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-sm border border-gray-100 dark:border-gray-700'>
+                <figure class='bg-white dark:bg-gray-800 rounded-lg p-4 text-center shadow-sm border border-gray-100 dark:border-gray-700'>
                   <div class='text-lg font-bold text-blue-600 dark:text-blue-400 mb-1'>
                     {stat.value}
                   </div>
-                  <div class='text-xs text-gray-600 dark:text-gray-400'>
+                  <figcaption class='text-xs text-gray-600 dark:text-gray-400'>
                     {t(lang, stat.labelKey)}
-                  </div>
-                </div>
+                  </figcaption>
+                </figure>
               ))
             }
           </div>
-        </div>
-      </div>
+        </section>
+      </section>
 
       <!-- Right Column - Image Slideshow -->
-      <div class='relative order-first lg:order-last'>
-        <div
+      <aside class='relative order-first lg:order-last'>
+        <figure
           class='relative w-full h-80 md:h-96 lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl'
         >
           <div id='hero-slideshow' class='relative w-full h-full'>
@@ -200,15 +210,18 @@ const stats = [
                     alt={t(lang, image.altKey)}
                     class='w-full h-full object-cover'
                   />
-                  <div class='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent' />
-                  <div class='absolute bottom-4 md:bottom-6 left-4 md:left-6 text-white'>
+                  <div
+                    class='absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent'
+                    aria-hidden='true'
+                  />
+                  <figcaption class='absolute bottom-4 md:bottom-6 left-4 md:left-6 text-white'>
                     <h3 class='text-lg md:text-xl font-bold mb-1 md:mb-2'>
                       {t(lang, image.titleKey)}
                     </h3>
                     <p class='text-xs md:text-sm opacity-90 hidden sm:block'>
                       {t(lang, image.altKey)}
                     </p>
-                  </div>
+                  </figcaption>
                 </div>
               ))
             }
@@ -216,6 +229,8 @@ const stats = [
 
           <div
             class='absolute bottom-3 md:bottom-4 right-3 md:right-4 flex space-x-2'
+            role='tablist'
+            aria-label='Image slideshow controls'
           >
             {
               heroImages.map((_, index) => (
@@ -223,6 +238,8 @@ const stats = [
                   class={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${index === 0 ? 'bg-white' : 'bg-white/50'}`}
                   data-slide-btn={index}
                   aria-label={`Go to slide ${index + 1}`}
+                  role='tab'
+                  aria-selected={index === 0}
                 />
               ))
             }
@@ -238,6 +255,7 @@ const stats = [
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
+              aria-hidden='true'
             >
               <path
                 stroke-linecap='round'
@@ -257,6 +275,7 @@ const stats = [
               fill='none'
               stroke='currentColor'
               viewBox='0 0 24 24'
+              aria-hidden='true'
             >
               <path
                 stroke-linecap='round'
@@ -265,23 +284,26 @@ const stats = [
                 d='M9 5l7 7-7 7'></path>
             </svg>
           </button>
-        </div>
+        </figure>
 
         <div
           class='absolute -top-6 -right-6 w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl rotate-12 opacity-80 animate-pulse hidden md:block'
+          aria-hidden='true'
         >
         </div>
         <div
           class='absolute -bottom-6 -left-6 w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full opacity-70 animate-bounce hidden md:block'
+          aria-hidden='true'
         >
         </div>
-      </div>
-    </div>
+      </aside>
+    </main>
   </div>
 
   <div
     id='scroll-indicator'
     class='absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10 hidden md:flex'
+    aria-label='Scroll to explore more content'
   >
     <div class='flex flex-col items-center'>
       <div

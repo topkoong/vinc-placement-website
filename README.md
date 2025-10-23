@@ -39,26 +39,55 @@ Visit `http://localhost:4321` to see the website.
 
 ```
 src/
-├── components/           # Reusable UI components
-│   ├── common/          # Common components (Logo, ThemeToggle)
-│   ├── layout/          # Layout components (Header, Footer)
-│   └── sections/        # Page sections (Hero, About, Services, etc.)
-├── i18n/                # Internationalization
-│   ├── locales/         # Translation files (en.json, ja.json, th.json)
-│   └── utils.ts         # Translation utilities
-├── layouts/             # Page layouts
-│   └── BaseLayout.astro # Base layout template
-├── pages/               # Route pages
-│   ├── en/              # English pages
-│   ├── ja/              # Japanese pages
-│   └── th/              # Thai pages
-├── styles/              # Global styles
-│   └── global.css       # Global CSS and Tailwind imports
-├── types/               # TypeScript type definitions
-│   └── index.ts         # Global types
-└── utils/               # Utility functions
-    ├── constants.ts     # App constants
-    └── seo.ts           # SEO utilities
+├── components/                    # Reusable UI components
+│   ├── common/                   # Common components
+│   │   ├── Logo.astro           # Company logo component
+│   │   └── ThemeToggle.astro    # Dark/light mode toggle
+│   ├── layout/                   # Layout components
+│   │   ├── SiteHeader.astro      # Main site header
+│   │   └── SiteFooter.astro     # Main site footer
+│   └── sections/                 # Page sections
+│       ├── HeroSection.astro     # Hero/banner section
+│       ├── AboutSection.astro    # About company section
+│       ├── ServicesSection.astro # Services showcase
+│       ├── ProjectsSection.astro # Project portfolio
+│       ├── ContactSection.astro  # Contact information
+│       └── ForWorkersSection.astro # Worker-focused content
+├── i18n/                         # Internationalization
+│   ├── locales/                  # Translation files
+│   │   ├── en.json              # English translations
+│   │   ├── ja.json              # Japanese translations
+│   │   └── th.json              # Thai translations
+│   └── utils.ts                  # Translation utilities
+├── layouts/                      # Page layouts
+│   └── BaseLayout.astro         # Base layout template
+├── pages/                        # Route pages (PascalCase)
+│   ├── en/                       # English pages
+│   │   ├── Index.astro          # Homepage
+│   │   ├── About.astro          # About page
+│   │   ├── Services.astro       # Services page
+│   │   ├── Projects.astro       # Projects page
+│   │   └── Contact.astro        # Contact page
+│   ├── ja/                       # Japanese pages
+│   │   ├── Index.astro          # Homepage
+│   │   ├── About.astro          # About page
+│   │   ├── Services.astro       # Services page
+│   │   ├── Projects.astro       # Projects page
+│   │   └── Contact.astro        # Contact page
+│   ├── th/                       # Thai pages
+│   │   ├── Index.astro          # Homepage
+│   │   ├── About.astro          # About page
+│   │   ├── Services.astro       # Services page
+│   │   ├── Projects.astro       # Projects page
+│   │   └── Contact.astro        # Contact page
+│   └── Index.astro               # Root redirect page
+├── styles/                       # Global styles
+│   └── global.css               # Global CSS and Tailwind imports
+├── types/                        # TypeScript type definitions
+│   └── index.ts                 # Global types
+└── utils/                        # Utility functions
+    ├── constants.ts             # App constants
+    └── seo.ts                   # SEO utilities
 ```
 
 ## 🛠️ Development
@@ -82,15 +111,20 @@ pnpm astro check
 ### Adding New Pages
 
 1. Create a new `.astro` file in the appropriate language folder (`src/pages/en/`, `src/pages/ja/`, `src/pages/th/`)
-2. Import and use `BaseLayout` with proper SEO metadata
-3. Add translations to locale files
-4. Update navigation in `Header.astro`
+2. Use **PascalCase** naming convention (e.g., `NewPage.astro`)
+3. Import and use `BaseLayout` with proper SEO metadata
+4. Add translations to locale files
+5. Update navigation in `SiteHeader.astro`
 
 ### Adding New Components
 
 1. Create component file in appropriate `src/components/` subfolder
-2. Export component with proper TypeScript interfaces
-3. Import and use in pages or other components
+2. Follow **production-grade naming conventions**:
+   - **Common components**: `ComponentName.astro` (e.g., `Button.astro`)
+   - **Layout components**: `SiteComponentName.astro` (e.g., `SiteHeader.astro`)
+   - **Section components**: `SectionNameSection.astro` (e.g., `HeroSection.astro`)
+3. Export component with proper TypeScript interfaces
+4. Import and use in pages or other components
 
 ## 🌐 Internationalization
 

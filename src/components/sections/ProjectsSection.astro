@@ -29,17 +29,17 @@ const categories = [
 <section class="py-20 bg-white dark:bg-gray-900" id="projects">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-12">
+    <section class="text-center max-w-3xl mx-auto mb-12">
       <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4">
         {t(lang, 'projects.title')}
       </h2>
       <p class="text-xl text-gray-600 dark:text-gray-300">
         {t(lang, 'projects.subtitle')}
       </p>
-    </div>
+    </section>
 
     <!-- Category Filters -->
-    <div class="flex flex-wrap justify-center gap-3 mb-12">
+    <nav class="flex flex-wrap justify-center gap-3 mb-12" aria-label="Project category filters">
       {categories.map((category, index) => (
         <button
           class={`px-6 py-2 rounded-full border-2 transition-colors duration-300 font-medium ${
@@ -48,34 +48,35 @@ const categories = [
               : 'border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white dark:text-blue-400 dark:border-blue-400 dark:hover:bg-blue-400 dark:hover:text-gray-900'
           }`}
           data-category={category}
+          aria-pressed={index === 0}
         >
           {category}
         </button>
       ))}
-    </div>
+    </nav>
 
     <!-- Projects Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {projects.map((project: any) => (
-        <div 
+        <article 
           class="project-card bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2" 
           data-project-category={project.categoryDisplay}
         >
           <!-- Project Image -->
-          <div class="relative bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-gray-700 dark:to-gray-600 overflow-hidden aspect-video">
+          <figure class="relative bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-gray-700 dark:to-gray-600 overflow-hidden aspect-video">
             <img 
               src={project.image} 
               alt={project.name}
               class="w-full h-full object-cover"
               loading="lazy"
             />
-            <div class="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold text-blue-600 dark:text-blue-400">
+            <div class="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold text-blue-600 dark:text-blue-400" aria-hidden="true">
               {project.year}
             </div>
-          </div>
+          </figure>
 
           <!-- Project Info -->
-          <div class="p-6 space-y-3">
+          <section class="p-6 space-y-3">
             <div class="text-xs uppercase tracking-wide text-blue-600 dark:text-blue-400 font-semibold">
               {project.categoryDisplay}
             </div>
@@ -85,28 +86,28 @@ const categories = [
             <p class="text-gray-600 dark:text-gray-300 text-sm">
               {project.description}
             </p>
-            <div class="flex items-center justify-between text-sm gap-4 pt-2">
+            <footer class="flex items-center justify-between text-sm gap-4 pt-2">
               <div class="flex items-center text-gray-500 dark:text-gray-400 min-w-0 flex-1">
-                <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                 </svg>
                 <span class="truncate">{project.location}</span>
               </div>
               <div class="flex items-center text-blue-600 dark:text-blue-400 font-semibold flex-shrink-0">
-                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                 </svg>
                 <span class="whitespace-nowrap">{project.personnel} {t(lang, 'common.personnel')}</span>
               </div>
-            </div>
-          </div>
-        </div>
+            </footer>
+          </section>
+        </article>
       ))}
-    </div>
+    </main>
 
     <!-- Note about more projects -->
-    <div class="text-center mt-12">
+    <aside class="text-center mt-12">
       <p class="text-gray-600 dark:text-gray-300 mb-4">
         {t(lang, 'projects.more_projects')}
       </p>
@@ -115,11 +116,11 @@ const categories = [
         class="inline-flex items-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition-colors"
       >
         {t(lang, 'projects.discuss_cta')}
-        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
         </svg>
       </a>
-    </div>
+    </aside>
   </div>
 </section>
 
